@@ -1,0 +1,50 @@
+.btn-container {
+  margin: 30px auto;
+  max-width: 1000px;
+  text-align:center;
+  display: flex;
+  justify-content: space-between;
+  // margin: 20px -5px; /* Negative margin to offset the margins on the extremities */
+  margin: 20px auto;
+  padding: 0;
+
+    // Media query for tablets (768px)
+    @media (max-width: 768px) {
+      max-width: 720px;
+      padding: 0;
+    }
+
+    // Media query for smartphones (576px)
+    @media (max-width: 576px) {
+      max-width: 370px;
+      padding: 0;
+    }
+}
+
+.btn {
+  color: $text-gray;
+  background-color: $button-gray;
+  padding: 10px 17px;
+  border-radius: 20px;
+  flex: 1; /* Each item occupies equal space */
+  margin: 0; /* Adjust the margin as needed */
+  max-width: 30%;
+
+  &:hover {
+    color: $white;
+    background-color: $red;
+  }
+    // Media query for tablets (768px)
+    @media (max-width: 768px) {
+      max-width: 30%;
+    }
+
+    // Media query for smartphones (576px)
+    @media (max-width: 576px) {
+      max-width: 30%;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 13px;
+    }
+
+}
