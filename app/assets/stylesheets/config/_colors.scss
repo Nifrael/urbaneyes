@@ -1,10 +1,12 @@
 // Define variables for your color scheme
 
 // For example:
-$red: #FD1015;
+$red: #FF5757; // This would be the color for the buttons when focused
+$black: #000000; // This would be the color for the text
+$text-gray: #030303; // This would be the color for the text
 $blue: #0D6EFD;
 $yellow: #FFC65A;
 $orange: #E67E22;
 $green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+$background-gray: #F1EEE7; // This would be the color used as a backgroud for all pages and the background color for the buttons
+$button-gray: #FFFDFD; // This would be the color of the buttons when not focused
