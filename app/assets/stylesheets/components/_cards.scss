@@ -1,4 +1,4 @@
-.card-container {
+.profile-container {
   color: $lighter-black;
   background-color: $button-gray;
   border-radius: 20px;
@@ -7,22 +7,27 @@
   padding: 0;
   margin: auto;
 
-  .card-content {
+  .container-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 
-    .card-text {
+    .content-text {
       width: 80%; // Adjust width as needed
       padding: 10px 30px;
 
+      h2 {
+        font-weight: 300;
+      }
+
       p {
         margin: 0;
+        font-weight: 100;
       }
     }
 
-    .card-avatar {
+    .content-avatar {
       width: 20%; // Adjust width as needed
       text-align: right;
       padding: 10px 30px 10px 0;
@@ -45,13 +50,13 @@
     margin: 10px auto;
     margin: auto;
 
-    .card-content {
+    .container-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
 
-      .card-text {
+      .content-text {
         width: 80%; // Adjust width as needed
         padding: 10px 30px;
 
@@ -61,7 +66,7 @@
 
       }
 
-      .card-avatar {
+      .content-avatar {
         width: 20%; // Adjust width as needed
         text-align: right;
         padding: 10px 25px 10px 0;
@@ -86,13 +91,13 @@
     margin: 10px auto;
     margin: auto;
 
-    .card-content {
+    .container-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
 
-      .card-text {
+      .content-text {
         width: 80%; // Adjust width as needed
         padding: 10px 30px;
         font-size: 11px;
@@ -109,7 +114,7 @@
         }
       }
 
-      .card-avatar {
+      .content-avatar {
         // width: 40%; // Adjust width as needed
         text-align: center;
         padding: 5px 15px 5px 0;
@@ -125,4 +130,57 @@
       }
     }
   }
+}
+
+.dec-container {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 20px;
+  margin: 10px 20px;
+  margin: auto;
+
+  @media (max-width: 576px) {
+    max-width: 370px;
+
+    .dec-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .dec-card {
+        width: 40%; // Adjust width as needed
+        color: $lighter-black;
+        background-color: $button-gray;
+        border-radius: 20px;
+        margin: 0 20px;
+
+        img.dec-image {
+          width: 170px;
+          padding:10px;
+        }
+
+        .dec-text {
+          padding: 14px;
+          margin: 0 auto;
+          text-align: center;
+
+          h2 {
+            font-size: 16px;
+            font-weight: 400;
+            margin:0;
+          }
+
+          p {
+            margin: 0;
+            font-weight: 100;
+          }
+
+        }
+
+      }
+
+    }
+  }
+
 }
