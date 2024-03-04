@@ -37,12 +37,23 @@ ticket1 = Ticket.create(
   user_id: user.id
 )
 
+ticket1.pending!
+ticket1.save
+ticket1.damage!
+ticket1.save
+
 ticket2 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
   location: Faker::Address.full_address,
   user_id: user.id
 )
+
+ticket2.pending!
+ticket2.save
+ticket2.upgrade!
+ticket2.save
+
 
 ticket3 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
@@ -51,12 +62,23 @@ ticket3 = Ticket.create(
   user_id: user.id
 )
 
+ticket3.pending!
+ticket3.save
+ticket3.upgrade!
+ticket3.save
+
+
 ticket4 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
   location: Faker::Address.full_address,
   user_id: user.id
 )
+
+ticket4.pending!
+ticket4.save
+ticket4.damage!
+ticket4.save
 
 puts "----------------------------------------------------------------"
 puts "#{Ticket.count} Tickets created!"
