@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Comment.new
+    @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.ticket_id = params[:id]
     @comment.save
