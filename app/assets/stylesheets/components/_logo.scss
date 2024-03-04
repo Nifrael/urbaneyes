@@ -1,0 +1,110 @@
+.logo-container { // class for first div that will contain the logo-row and logo-justify-content-center
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+  padding-left: 15px;
+  padding-right: 15px;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 140px; // To skip issues with logo and lower elements to interact
+
+  // Media query for tablets (768px)
+  @media (max-width: 768px) {
+    max-width: 720px;
+    margin-bottom: 140px;
+  }
+
+  // Media query for smartphones (576px)
+  @media (max-width: 576px) {
+    max-width: 540px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 55px;
+  }
+}
+
+
+.logo-row { // class for second div inside logo-container div
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logo-justify-content-center { // class for second div inside logo-container div
+  justify-content: center;
+}
+
+.logo-col-auto { // class for third div inside logo-row & logo-justify-content-center div
+  position: relative;
+}
+
+.logo-relative-container {
+  position: relative;
+  width: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  // Media query for smartphones (576px)
+  @media (max-width: 576px) {
+    width: 100%; // Set width to 100% for smartphones
+    padding-right: 10px; // Adjust padding for smartphones
+    padding-left: 10px; // Adjust padding for smartphones
+  }
+}
+
+.logo-content-wrapper {
+  text-align: center;
+
+
+  h1 {
+    font-weight: 700;
+    letter-spacing: -3px;
+    font-size: 80px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  p {
+    letter-spacing: 5.52px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    position: absolute;
+    top: 85px;
+    left: 60px;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // Media query for smartphones (576px)
+  @media (max-width: 576px) {
+    h1 {
+      font-size: 40px; // Adjust font size for smartphones
+      letter-spacing: -1px;
+
+    }
+
+    p {
+      font-size: 9px;
+      letter-spacing: 4px; // Adjust letter spacing for smartphones
+      position: absolute;
+      top:44px;
+      letter-spacing: 2.52px;
+      left:50%;
+      transform: translateX(-50%);
+    }
+
+    img {
+      width: 50px; // Adjust image width for smartphones
+      height: 50px; // Adjust image height for smartphones
+      top: 50px; // Adjust top position for smartphones
+    }
+
+  }
+}

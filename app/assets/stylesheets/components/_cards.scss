@@ -1,0 +1,186 @@
+.profile-container {
+  color: $lighter-black;
+  background-color: $button-gray;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 10px 20px;
+  padding: 0;
+  margin: auto;
+
+  .container-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .content-text {
+      width: 80%; // Adjust width as needed
+      padding: 10px 30px;
+
+      h2 {
+        font-weight: 300;
+      }
+
+      p {
+        margin: 0;
+        font-weight: 100;
+      }
+    }
+
+    .content-avatar {
+      width: 20%; // Adjust width as needed
+      text-align: right;
+      padding: 10px 30px 10px 0;
+      background-size: contain;
+
+      img {
+        border-radius: 50%; // Make the avatar image round
+        width: 100px; // Adjust width as needed
+        height: 100px; // Adjust height as needed
+        object-fit: cover;
+      }
+
+    }
+
+  }
+
+  // Media query for tablets (768px)
+  @media (max-width: 768px) {
+    max-width: 720px;
+    margin: 10px auto;
+    margin: auto;
+
+    .container-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .content-text {
+        width: 80%; // Adjust width as needed
+        padding: 10px 30px;
+
+        p {
+          margin: 0;
+        }
+
+      }
+
+      .content-avatar {
+        width: 20%; // Adjust width as needed
+        text-align: right;
+        padding: 10px 25px 10px 0;
+        background-size: contain;
+
+        img {
+          border-radius: 50%; // Make the avatar image round
+          width: 80px; // Adjust width as needed
+          height: 80px; // Adjust height as needed
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  // Media query for smartphones (576px)
+  @media (max-width: 576px) {
+    max-width: 370px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px;
+    margin: 10px auto;
+    margin: auto;
+
+    .container-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .content-text {
+        width: 80%; // Adjust width as needed
+        padding: 10px 30px;
+        font-size: 11px;
+
+        p {
+          margin: 0;
+          line-height: 12px;
+
+        }
+
+        h2 {
+          font-size: 16px;
+          margin-bottom: 2px;
+        }
+      }
+
+      .content-avatar {
+        // width: 40%; // Adjust width as needed
+        text-align: center;
+        padding: 5px 15px 5px 0;
+        background-size: contain;
+
+
+        img {
+          border-radius: 50%; // Make the avatar image round
+          width: 60px; // Adjust width as needed
+          height: 60px; // Adjust height as needed
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.dec-container {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 20px;
+  margin: 10px 20px;
+  margin: auto;
+
+  @media (max-width: 576px) {
+    max-width: 370px;
+
+    .dec-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .dec-card {
+        width: 40%; // Adjust width as needed
+        color: $lighter-black;
+        background-color: $button-gray;
+        border-radius: 20px;
+        margin: 0 20px;
+
+        img.dec-image {
+          width: 170px;
+          padding:10px;
+        }
+
+        .dec-text {
+          padding: 14px;
+          margin: 0 auto;
+          text-align: center;
+
+          h2 {
+            font-size: 16px;
+            font-weight: 400;
+            margin:0;
+          }
+
+          p {
+            margin: 0;
+            font-weight: 100;
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+}
