@@ -17,7 +17,6 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.create(ticket_params)
     @ticket.user_id = current_user.id
-    redirect_to ticket_path(@ticket)
     if player.save
       redirect_to ticket_path(@ticket)
     else
