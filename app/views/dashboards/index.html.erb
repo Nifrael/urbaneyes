@@ -1,0 +1,46 @@
+<div>
+  <div class="logo-container">
+    <div class="logo-row logo-justify-content-center">
+      <div class="logo-col-auto logo-relative-container">
+        <div class="logo-content-wrapper">
+        <h1>UrbanEyes</h1>
+        <p>Be the eyes of your city</p>
+        <%= image_tag('binocular-transparent.png') %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="profile-container">
+  <div class="container-content">
+    <div class="content-text">
+      <h2>Bonjour <%= current_user.email %></h2>
+      <p>How would you like to enhance your city's public spaces today?</p>
+    </div>
+    <div class="content-avatar">
+      <img src="https://www.lafabriquedeladanse.fr/wp-content/uploads/2018/06/Jiri-1-1-600x800.jpg" alt="Avatar">
+    </div>
+  </div>
+</div>
+<div class="btn-container">
+  <a href="" class="btn">Mes propositions</a>
+  <a href="" class="btn">Amméliorations</a>
+  <a href="" class="btn">Dégâts</a>
+</div>
+
+<div class="dec-container">
+  <div class="dec-content">
+    <div class="dec-card">
+      <%= image_tag("amelioration-prop.png", class:"dec-image") %>
+      <div class="dec-text">
+        <h2>Nouvelle amélioraion</h2>
+      </div>
+    </div>
+    <div class="dec-card">
+      <%= image_tag("damage-dec.png", class:"dec-image") %>
+      <div class="dec-text">
+        <h2>Nouveau dégât</h2>
+      </div>
+    </div>
+  </div>
+</div>
