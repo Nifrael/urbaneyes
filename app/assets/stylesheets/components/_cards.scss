@@ -139,6 +139,66 @@
   margin: 10px 20px;
   margin: auto;
 
+  .dec-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: row-reverse;
+
+    .dec-card-improvement {
+      background-color: $button-gray;
+      text-align: center;
+      border-radius: 20px;
+      margin: 0 50px;
+
+      .image-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width:300px;
+
+        img.image {
+          width: 350px;
+          padding: 10px;
+        }
+
+      }
+
+    }
+
+    .dec-card-damage {
+      background-color: $button-gray;
+      text-align: center;
+      border-radius: 20px;
+      margin: 0 50px;
+
+      .image-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width:300px;
+
+        img.image {
+          width: 350px;
+          padding: 10px;
+        }
+
+      }
+    }
+
+    .dec-card-improvement:hover {
+      background-color: $green-improve;
+      cursor: pointer;
+    }
+
+    .dec-card-damage:hover {
+      background-color: $red-damage;
+      cursor: pointer;
+    }
+
+  }
+
   @media (max-width: 576px) {
     max-width: 370px;
 
