@@ -18,19 +18,20 @@ export default class extends Controller {
   }
 
   open(event) {
-    event.preventDefault
-    let tabId= event.currentTarget.dataset.id
-    this.tabTargets.forEach(tab => {
-      if (tab.dataset.tabsTypeValue !== tabId)
-        tab.classList.add('hidden')
-      else
-        tab.classList.remove('hidden')
-    });
-  }
-
-  close(event) {
     event.preventDefault();
-    let tab = event.currentTarget.closest("[data-tabs-target='tab']");
-    tab.classList.add('hidden');
+    let tabId = event.currentTarget.dataset.id;
+    this.tabTargets.forEach(tab => {
+      if (tab.dataset.tabsTypeValue === tabId) {
+        // Vérifier si l'onglet est déjà ouvert et le fermer si c'est le cas
+        if (!tab.classList.contains('hidden')) {
+          tab.classList.add('hidden');
+        } else {
+          // Ouvrir l'onglet cliqué et fermer les autres
+          tab.classList.remove('hidden');
+        }
+      } else {
+        tab.classList.add('hidden');
+      }
+    });
   }
 }
