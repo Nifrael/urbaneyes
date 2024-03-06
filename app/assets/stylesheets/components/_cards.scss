@@ -150,7 +150,7 @@
       background-color: $button-gray;
       text-align: center;
       border-radius: 20px;
-      margin: 0 50px;
+      margin: 0 70px; // if you cange this margin make sure to change it also in the .dec-card-damage
 
       .image-container {
         display: flex;
@@ -171,7 +171,7 @@
       background-color: $button-gray;
       text-align: center;
       border-radius: 20px;
-      margin: 0 50px;
+      margin: 0 70px; // if you cange this margin make sure to change it also in the .dec-card-improvement
 
       .image-container {
         display: flex;
@@ -214,9 +214,11 @@
         background-color: $button-gray;
         border-radius: 20px;
         margin: 0 20px;
+        height: 100%;
 
         img.dec-image {
           width: 170px;
+          height: 170px;
           padding:10px;
         }
 
@@ -244,3 +246,71 @@
   }
 
 }
+
+.list-map-container {
+  color: $lighter-black;
+  background-color: $button-gray;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 0 20px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 50px;
+
+  .l-m-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .l-m-text {
+      width: 70%; // Adjust width as needed
+      padding: 10px 30px;
+
+      h2 {
+        font-weight: 300;
+      }
+
+      p {
+        margin: 0;
+        font-weight: 100;
+      }
+    }
+
+    .l-m-buttons {
+      width: 40%; // Adjust width as needed
+      text-align: center;
+
+      a.btn-l-m {
+        color: $text-gray;
+        background-color: $button-gray;
+        padding: 10px 30px;
+        border-radius: 20px;
+        margin: 2px auto; /* Adjust the margin as needed */
+        border: 1px solid $lighter-black;
+        text-decoration: none;
+        &:hover {
+          color: $white;
+          background-color: $red;
+        }
+
+        // Media query for tablets (768px)
+        @media (max-width: 768px) {
+          max-width: 30%;
+        }
+
+        // Media query for smartphones (576px)
+        @media (max-width: 576px) {
+          max-width: 30%;
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 13px;
+        }
+
+      }
+
+      }
+
+    }
+
+  }
