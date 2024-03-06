@@ -22,11 +22,65 @@
     </div>
   </div>
 </div>
-<div class="btn-container">
-  <a href="" class="btn">Mes propositions</a>
-  <a href="" class="btn">Amméliorations</a>
-  <a href="" class="btn">Dégâts</a>
+
+<div data-controller="tabs">
+  <div class="btn-container">
+    <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="tickets">Mes propositions</button>
+    <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="upgrade">Amméliorations</button>
+    <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="damage">Dégâts</button>
+  </div>
+
+  <div data-tabs-target="tab" data-tabs-type-value="tickets">
+    <div class="profile-container">
+      <div class="container-content">
+        <div class="content-text">
+          <% @tickets.each do |ticket| %>
+            <p><%= ticket.category %></p>
+            <p><%= ticket.description %></p>
+            <p><%= ticket.location %></p>
+            <p><%= ticket.total_votes %></p>
+          <% end %>
+          <button data-action="tabs#close">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-tabs-target="tab" data-tabs-type-value="upgrade">
+    <div class="profile-container">
+      <div class="container-content">
+        <div class="content-text">
+          <% @tickets.each do |ticket| %>
+            <% if ticket.category == "upgrade" %>
+              <p><%= ticket.description %></p>
+              <p><%= ticket.location %></p>
+              <p><%= ticket.total_votes %></p>
+            <% end %>
+          <% end %>
+          <button data-action="tabs#close">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-tabs-target="tab" data-tabs-type-value="damage">
+    <div class="profile-container">
+      <div class="container-content">
+        <div class="content-text">
+          <% @tickets.each do |ticket| %>
+            <% if ticket.category == "damage" %>
+              <p><%= ticket.description %></p>
+              <p><%= ticket.location %></p>
+              <p><%= ticket.total_votes %></p>
+            <% end %>
+          <% end %>
+          <button data-action="tabs#close">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <div class="dec-container">
   <div class="dec-content">
