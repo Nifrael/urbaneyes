@@ -23,16 +23,21 @@
   </div>
 </div>
 
-<div data-controller="tabs">
-  <div class="btn-container">
-    <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="tickets">Mes propositions</button>
-    <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="upgrade">Amméliorations</button>
-    <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="damage">Dégâts</button>
-  </div>
+<div class="btn-container">
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tickets">Mes propositions</button>
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#upgrade">Amméliorations</button>
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#damage">Dégâts</button>
+</div>
 
-  <div data-tabs-target="tab" data-tabs-type-value="tickets">
-    <div class="profile-container">
-      <% @tickets.each do |ticket| %>
+<div class="modal fade" id="tickets" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="ticketsLabel">Mes propositions</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="profile-container">
+        <% @tickets.each do |ticket| %>
         <div class="container-content">
           <div class="content-text">
             <p><%= ticket.category %></p>
@@ -42,38 +47,55 @@
           </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
+</div>
 
-  <div data-tabs-target="tab" data-tabs-type-value="upgrade">
-    <div class="profile-container">
-      <% @tickets.each do |ticket| %>
-        <% if ticket.category == "upgrade" %>
-          <div class="container-content">
-            <div class="content-text">
-              <p><%= ticket.description %></p>
-              <p><%= ticket.location %></p>
-              <p><%= ticket.total_votes %></p>
+<div class="modal fade" id="upgrade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="ticketsLabel">Amméliorations</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="profile-container">
+        <% @tickets.each do |ticket| %>
+          <% if ticket.category == "upgrade" %>
+            <div class="container-content">
+              <div class="content-text">
+                <p><%= ticket.description %></p>
+                <p><%= ticket.location %></p>
+                <p><%= ticket.total_votes %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
+</div>
 
-  <div data-tabs-target="tab" data-tabs-type-value="damage">
-    <div class="profile-container">
-      <% @tickets.each do |ticket| %>
-        <% if ticket.category == "damage" %>
-          <div class="container-content">
-            <div class="content-text">
-              <p><%= ticket.description %></p>
-              <p><%= ticket.location %></p>
-              <p><%= ticket.total_votes %></p>
+<div class="modal fade" id="damage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="ticketsLabel">Dégâts</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="profile-container">
+        <% @tickets.each do |ticket| %>
+          <% if ticket.category == "damage" %>
+            <div class="container-content">
+              <div class="content-text">
+                <p><%= ticket.description %></p>
+                <p><%= ticket.location %></p>
+                <p><%= ticket.total_votes %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
