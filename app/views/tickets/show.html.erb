@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="ticket-title">
+    <h2><%= @ticket.category == "upgrade" ? "Proposition d'amélioration" : "Déclaration de dégât" %></h2>
+  </div>
+  <div class="photo-map">
+    <div class="item-container">
+      <p>Test<%= @ticket.photo %></p>
+    </div>
+    <div class="item-container">
+      <p>Test<%= @ticket.photo %></p>
+    </div>
+  </div>
+  <div class="infos-container">
+    <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %></p>
+    <p>Lieu : <%= @ticket.location %></p>
+    <p>Description : <%= @ticket.description %></p>
+  </div>
+  <div class="votes-container">
+    <button class="btn">Vote UP</button>
+    <button class="btn">Vote DOWN</button>
+  </div>
+  <div class="comments-container">
+    <div class="title-comments-bar">
+      <h6>Commentaires</h6>
+      <button class="btn">Ajouter un commentaire</button>
+    </div>
+    <div class="comments-list">
+      <p>Commentaire 1</p>
+      <p>Commentaire 1</p>
+      <p>Commentaire 1</p>
+    </div>
+  </div>
+</div>
