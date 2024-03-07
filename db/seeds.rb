@@ -33,7 +33,7 @@ puts "----------------------------------------------------------------"
 ticket1 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: Faker::Address.full_address,
   user_id: user.id
 )
 
@@ -45,7 +45,7 @@ ticket1.save
 ticket2 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: Faker::Address.full_address,
   user_id: user.id
 )
 
@@ -58,7 +58,7 @@ ticket2.save
 ticket3 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: Faker::Address.full_address,
   user_id: user.id
 )
 
@@ -71,7 +71,7 @@ ticket3.save
 ticket4 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: Faker::Address.full_address,
   user_id: user.id
 )
 
