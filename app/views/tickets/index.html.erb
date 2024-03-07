@@ -2,3 +2,9 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<% @tickets.each do |ticket| %>
+<h1><%= ticket.id %></h1>
+<p><%= ticket.address %></p>
+<p><%= ticket.latitude %></p>
+<p><%= ticket.longitude %></p>
+<% end  %>
