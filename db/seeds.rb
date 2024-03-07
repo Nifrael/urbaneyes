@@ -33,11 +33,11 @@ puts "----------------------------------------------------------------"
 ticket1 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: "1 Pl. de la Comédie, 69001 Lyon",
   user_id: user.id
 )
 
-ticket1.pending!
+ticket1.status_pending!
 ticket1.save
 ticket1.damage!
 ticket1.save
@@ -45,11 +45,11 @@ ticket1.save
 ticket2 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: "11 W 53rd St, New York, NY 10019, Stati Uniti",
   user_id: user.id
 )
 
-ticket2.pending!
+ticket2.status_pending!
 ticket2.save
 ticket2.upgrade!
 ticket2.save
@@ -58,11 +58,11 @@ ticket2.save
 ticket3 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: "Süleymaniye, Mimar Sinan Cd. No:20, 34116 Fatih/İstanbul, Turchia",
   user_id: user.id
 )
 
-ticket3.pending!
+ticket3.status_pending!
 ticket3.save
 ticket3.upgrade!
 ticket3.save
@@ -71,11 +71,11 @@ ticket3.save
 ticket4 = Ticket.create(
   total_votes: Faker::Number.number(digits: 2),
   description: Faker::Markdown.emphasis,
-  location: Faker::Address.full_address,
+  address: "3 Jervois Quay, Wellington Central, Wellington 6011, Nuova Zelanda",
   user_id: user.id
 )
 
-ticket4.pending!
+ticket4.status_pending!
 ticket4.save
 ticket4.damage!
 ticket4.save
