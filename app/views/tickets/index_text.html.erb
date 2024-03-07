@@ -1,0 +1,4 @@
+<% @tickets.each do |ticket| %>
+<%= ticket.photo %>
+<p>Déclaration N°<%= ticket.id %> : <%= ticket.category == "upgrade" ? "Amélioration proposée" : "Dégât déclaré" %></p>
+<% end %>
