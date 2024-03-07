@@ -3,6 +3,9 @@ class Ticket < ApplicationRecord
   has_many :votes
   has_many :comments
 
-  enum :status, { pending: 0, ended: 1 }
-  enum :category, { upgrade: 0, damage: 1 }
+  enum status: { pending: 0, ended: 1 }, _prefix: :status
+  enum category: { upgrade: 0, damage: 1 }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

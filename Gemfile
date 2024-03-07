@@ -52,6 +52,11 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 
+# Geocoder
+gem "geocoder"
+
+# The dotenv gem for security.
+gem "dotenv-rails"
 
 group :development, :test do
   gem "dotenv-rails"
