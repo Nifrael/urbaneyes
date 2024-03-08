@@ -1,3 +1,15 @@
+// The code below is to see how we like the content to be placed in the space.
+// .center-vertically {
+//   display: flex;
+//   align-items: center; /* Center vertically */
+//   flex-direction: column; /* Stack elements vertically */
+//   height: auto; /* Make the container full height of the viewport */
+// }
+
+// .center-vertically-content {
+//   margin: 60px 0; /* Add margin to dec-content */
+// }
+
 .profile-container {
   color: $lighter-black;
   background-color: $button-gray;
@@ -277,7 +289,7 @@
   margin: 0 20px;
   padding: 10px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   position: relative;
 
   .l-m-content {
@@ -328,7 +340,6 @@
       width:100px;
       height:150px;
     }
-
   }
 
   // Media query for tablets (768px)
@@ -337,7 +348,7 @@
     margin: 0 20px;
     padding: 10px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
     h2 {
       font-size: 16px;
     }
@@ -349,7 +360,7 @@
     font-size: 13px;
     margin: 0 20px;
     padding: 10px;
-    margin: 50px auto;
+    margin: 20px auto;
     h2 {
       font-size: 16px;
     }
