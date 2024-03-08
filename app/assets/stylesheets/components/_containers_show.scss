@@ -64,6 +64,13 @@
   font-weight: 300;
   justify-content: space-around;
   margin-bottom: 20px;
+
+  .btn {
+    padding: 10px 20px; // Augmente le padding pour plus d'espace autour du texte
+    font-size: 1rem; // Assurez-vous que la taille de police est appropriée
+    min-width: 100px; // Minimum width to ensure text visibility
+    white-space: nowrap;
+  }
 }
 
 // Container des commentaires

@@ -15,10 +15,23 @@
     <p>Lieu : <%= @ticket.address %></p>
     <p>Description : <%= @ticket.description %></p>
   </div>
-  <div class="votes-container">
+  <%# <div class="votes-container">
     <button class="btn">Vote UP</button>
     <button class="btn">Vote DOWN</button>
-  </div>
+  </div> %>
+  <div class="votes-container">
+    <%= form_with(url: votes_path, method: :post, local: true) do |form| %>
+      <%= form.hidden_field :ticket_id, value: @ticket.id %>
+      <%= form.hidden_field :up_vote, value: true %>
+      <%= form.submit "Vote UP", class: "btn" %>
+    <% end %>
+
+    <%= form_with(url: votes_path, method: :post, local: true) do |form| %>
+      <%= form.hidden_field :ticket_id, value: @ticket.id %>
+      <%= form.hidden_field :up_vote, value: false %>
+      <%= form.submit "Vote DOWN", class: "btn" %>
+    <% end %>
+</div>
   <div class="comments-container">
     <div class="title-comments-bar">
       <h6>Commentaires</h6>
