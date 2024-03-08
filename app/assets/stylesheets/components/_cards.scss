@@ -278,6 +278,7 @@
   padding: 10px;
   margin: auto;
   margin-top: 50px;
+  position: relative;
 
   .l-m-content {
     display: flex;
@@ -318,6 +319,14 @@
 
       }
 
+    }
+
+    img {
+      position: absolute;
+      left:35%;
+      top: 15%;
+      width:100px;
+      height:150px;
     }
 
   }
