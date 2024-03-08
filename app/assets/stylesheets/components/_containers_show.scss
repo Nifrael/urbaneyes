@@ -71,6 +71,14 @@
     min-width: 100px; // Minimum width to ensure text visibility
     white-space: nowrap;
   }
+
+  .btn-green {
+    background-color: $green;
+  }
+
+  .btn-red {
+    background-color: $red;
+  }
 }
 
 // Container des commentaires
