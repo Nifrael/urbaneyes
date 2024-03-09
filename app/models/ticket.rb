@@ -8,4 +8,12 @@ class Ticket < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def total_up_votes
+    votes.where(up_vote: true).count
+  end
+
+  def total_down_votes
+    votes.where(up_vote: false).count
+  end
 end
