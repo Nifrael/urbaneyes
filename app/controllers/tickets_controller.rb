@@ -46,7 +46,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:photo, :type, :description, :location, :status, :latitude, :longitude, :user_id)
+    params.require(:ticket).permit(:photo, :type, :description, :address, :status, :latitude, :longitude, :user_id)
   end
 
   def find_ticket
