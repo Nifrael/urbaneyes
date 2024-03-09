@@ -1,0 +1,8 @@
+<%= simple_form_for [@ticket, @comment] do |f| %>
+  <%= f.text_area :content,
+              label: "Commentaire :",
+              as: :string,
+              placeholder: "Maximum 250 caractères" %>
+              <br>
+  <%= f.submit "Envoyer", class: "btn" %>
+<% end %>
