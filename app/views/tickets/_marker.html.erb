@@ -1,9 +1,5 @@
 <% if ticket.category == "damage" %>
-  <%= link_to ticket_path(ticket) do %>
-    <%= image_tag "LogoDamage.png", height: 50, width: 50, alt: "Logo" %>
-  <% end %>
+  <%= image_tag "LogoDamage.png", height: 50, width: 50, alt: "Logo" %>
 <% else %>
-  <%= link_to ticket_path(ticket) do %>
-    <%= image_tag "LogoImprove.png", height: 50, width: 50, alt: "Logo" %>
-  <% end %>
+  <%= image_tag "LogoImprove.png", height: 50, width: 50, alt: "Logo" %>
 <% end %>

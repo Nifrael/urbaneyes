@@ -1,4 +1,5 @@
 <div class="map">
-  <h2><%= ticket.category.capitalize %></h2>
+    <h2><%= ticket.category.capitalize %></h2>
   <p><%= ticket.address %></p>
+  <%= link_to "Check this ticket", ticket_path(ticket), class:"ticket-btn" %>
 </div>
