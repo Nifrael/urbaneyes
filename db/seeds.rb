@@ -23,6 +23,7 @@ puts "----------------------------------------------------------------"
 ricardo = User.create(
   first_name: "Ricardo",
   last_name: "Canas",
+  role: "user",
   address: "9 Rue des Tuileries, 69009 Lyon",
   email: "ricardo@gmail.com",
   password: "test1234",
@@ -32,6 +33,7 @@ ricardo = User.create(
 albert = User.create(
   first_name: "Albert",
   last_name: "Nikolli",
+  role: "user",
   address: "9 Rue Anselme, 69004 Lyon",
   email: "albert@gmail.com",
   password: "test1234",
@@ -41,6 +43,7 @@ albert = User.create(
 julien = User.create(
   first_name: "Julien",
   last_name: "Marchand",
+  role: "user",
   address: "9 Av. de Ménival, 69005 Lyon",
   email: "julien@gmail.com",
   password: "test1234",
@@ -50,6 +53,7 @@ julien = User.create(
 katniss = User.create(
   first_name: "Katniss",
   last_name: "Everdeen",
+  role: "user",
   address: "9 Rue de la Paix, 69500 Bron",
   email: "katniss@gmail.com",
   password: "test1234",
@@ -59,6 +63,7 @@ katniss = User.create(
 leia = User.create(
   first_name: "Leia",
   last_name: "Organa",
+  role: "user",
   address: "9 Rue de la République, 69001 Lyon",
   email: "leia@gmail.com",
   password: "test1234",
@@ -68,6 +73,7 @@ leia = User.create(
 dolores = User.create(
   first_name: "Dolores",
   last_name: "Ombrage",
+  role: "user",
   address: "9 Rue Duquesne, 69006 Lyon",
   email: "dolores@gmail.com",
   password: "test1234",
