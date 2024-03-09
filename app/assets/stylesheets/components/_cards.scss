@@ -1,3 +1,15 @@
+// The code below is to see how we like the content to be placed in the space.
+// .center-vertically {
+//   display: flex;
+//   align-items: center; /* Center vertically */
+//   flex-direction: column; /* Stack elements vertically */
+//   height: auto; /* Make the container full height of the viewport */
+// }
+
+// .center-vertically-content {
+//   margin: 60px 0; /* Add margin to dec-content */
+// }
+
 .profile-container {
   color: $lighter-black;
   background-color: $button-gray;
@@ -39,9 +51,7 @@
         height: 100px; // Adjust height as needed
         object-fit: cover;
       }
-
     }
-
   }
 
   // Media query for tablets (768px)
@@ -63,7 +73,6 @@
         p {
           margin: 0;
         }
-
       }
 
       .content-avatar {
@@ -105,7 +114,6 @@
         p {
           margin: 0;
           line-height: 12px;
-
         }
 
         h2 {
@@ -119,7 +127,6 @@
         text-align: center;
         padding: 5px 15px 5px 0;
         background-size: contain;
-
 
         img {
           border-radius: 50%; // Make the avatar image round
@@ -145,9 +152,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    flex-direction: row-reverse;
+    // flex-direction: row-reverse;
 
-    .dec-card-improvement {
+    .dec-card-improvement, .dec-card-damage {
       background-color: $button-gray;
       text-align: center;
       border-radius: 20px;
@@ -162,29 +169,8 @@
         img.image {
           width: 350px;
           padding: 10px;
+
         }
-
-      }
-
-    }
-
-    .dec-card-damage {
-      background-color: $button-gray;
-      text-align: center;
-      border-radius: 20px;
-      margin: 0 70px; // if you cange this margin make sure to change it also in the .dec-card-improvement
-
-      .image-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width:300px;
-
-        img.image {
-          width: 350px;
-          padding: 10px;
-        }
-
       }
     }
 
@@ -200,43 +186,42 @@
 
   }
 
-  @media (max-width: 576px) {
-    max-width: 370px;
+  @media (max-width: 768px) {
+    max-width: 720px;
+    margin: 10px 20px;
+    margin: auto;
+    align-items: center;
 
     .dec-content {
-      display: flex;
+      width: 100%; // Adjust width as needed
+      color: $lighter-black;
+      border-radius: 20px;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
+      margin: auto;
+      height: auto;
 
-      .dec-card {
-        width: 40%; // Adjust width as needed
-        color: $lighter-black;
+      .dec-card-improvement, .dec-card-damage {
         background-color: $button-gray;
+        text-align: center;
         border-radius: 20px;
-        margin: 0 20px;
-        height: 100%;
+        margin: 0; // if you cange this margin make sure to change it also in the .dec-card-damage
 
-        img.dec-image {
-          width: 50%;
-          height: 50%;
-          padding:10px;
+        h2 {
+          font-size: 16px;
+          margin-bottom: 2px;
         }
 
-        .dec-text {
-          padding: 14px;
-          margin: 0 auto;
-          text-align: center;
+        .image-container {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          width:200px;
 
-          h2 {
-            font-size: 16px;
-            font-weight: 400;
-            margin:0;
-          }
+          img.image {
+            width: 225px;
+            padding: 10px;
 
-          p {
-            margin: 0;
-            font-weight: 100;
           }
 
         }
@@ -244,9 +229,57 @@
       }
 
     }
+
+  }
+
+  @media (max-width: 576px) {
+    max-width: 370px;
+    font-size: 10px;
+    align-items: center;
+
+    .dec-content {
+      width: 100%; // Adjust width as needed
+      color: $lighter-black;
+      border-radius: 20px;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+      height: auto;
+
+      .dec-card-improvement, .dec-card-damage {
+        background-color: $button-gray;
+        text-align: center;
+        border-radius: 20px;
+        margin: 0; // if you cange this margin make sure to change it also in the .dec-card-damage
+
+        h2 {
+          font-size: 16px;
+          margin-bottom: 2px;
+        }
+
+        .image-container {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          width:150px;
+
+          img.image {
+            width: 175px;
+            padding: 10px;
+
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
 }
+
+
 
 .list-map-container {
   color: $lighter-black;
@@ -256,7 +289,8 @@
   margin: 0 20px;
   padding: 10px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
+  position: relative;
 
   .l-m-content {
     display: flex;
@@ -295,23 +329,46 @@
           background-color: $red;
         }
 
-        // Media query for tablets (768px)
-        @media (max-width: 768px) {
-          max-width: 30%;
-        }
-
-        // Media query for smartphones (576px)
-        @media (max-width: 576px) {
-          max-width: 30%;
-          padding-left: 10px;
-          padding-right: 10px;
-          font-size: 13px;
-        }
-
-      }
-
       }
 
     }
 
+    img {
+      position: absolute;
+      left:35%;
+      top: 15%;
+      width:100px;
+      height:150px;
+    }
   }
+
+  // Media query for tablets (768px)
+  @media (max-width: 768px) {
+    max-width: 720px;
+    margin: 0 20px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+    h2 {
+      font-size: 16px;
+    }
+  }
+
+  // Media query for smartphones (576px)
+  @media (max-width: 576px) {
+    max-width: 370px;
+    font-size: 13px;
+    margin: 0 20px;
+    padding: 10px;
+    margin: 20px auto;
+
+    h2 {
+      font-size: 16px;
+    }
+
+    a {
+      font-size: 13px;
+    }
+  }
+
+}

@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :votes
   has_many :comments
 
+  enum role: { user: 0, admin: 1 }
+
+  validates :first_name, :last_name, :address, presence: true
 end

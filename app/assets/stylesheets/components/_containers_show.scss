@@ -2,14 +2,15 @@
 
 .container {
   @media (max-width: 576px) {
-  max-width: 370px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 10px;
-  margin: 5px auto;
-  margin: auto;
-  color: $lighter-black;
- }
+    max-width: 370px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px;
+    margin: 5px auto;
+    margin: auto;
+    color: $lighter-black;
+
+  }
 }
 
 
@@ -64,6 +65,21 @@
   font-weight: 300;
   justify-content: space-around;
   margin-bottom: 20px;
+
+  .btn {
+    padding: 10px 20px; // Augmente le padding pour plus d'espace autour du texte
+    font-size: 1rem; // Assurez-vous que la taille de police est appropriée
+    min-width: 100px; // Minimum width to ensure text visibility
+    white-space: nowrap;
+  }
+
+  .btn-green {
+    background-color: $green;
+  }
+
+  .btn-red {
+    background-color: $red;
+  }
 }
 
 // Container des commentaires
