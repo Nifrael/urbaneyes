@@ -10,4 +10,12 @@ class Ticket < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   validates :title, :category, :address, :description, :status, :user_id, presence: true
+
+  def total_up_votes
+    votes.where(up_vote: true).count
+  end
+
+  def total_down_votes
+    votes.where(up_vote: false).count
+  end
 end
