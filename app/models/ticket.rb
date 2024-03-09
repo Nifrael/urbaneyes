@@ -8,4 +8,6 @@ class Ticket < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  validates :title, :category, :address, :description, :status, :user_id, presence: true
 end

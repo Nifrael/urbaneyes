@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :votes
   has_many :comments
 
+  validates :first_name, :last_name, :address, presence: true
 end
