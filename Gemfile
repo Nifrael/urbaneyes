@@ -55,6 +55,9 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main
 # Geocoder
 gem "geocoder"
 
+# Cloudinary
+gem "cloudinary"
+
 # The dotenv gem for security.
 gem "dotenv-rails"
 
