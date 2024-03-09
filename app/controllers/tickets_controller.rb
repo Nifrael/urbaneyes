@@ -6,7 +6,9 @@ class TicketsController < ApplicationController
     @markers = @tickets.geocoded.map do |ticket|
       {
         lat: ticket.latitude,
-        lng: ticket.longitude
+        lng: ticket.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {ticket: ticket}),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
