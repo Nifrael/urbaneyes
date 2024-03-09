@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
         lat: ticket.latitude,
         lng: ticket.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {ticket: ticket}),
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker", locals: {ticket: ticket})
       }
     end
   end
