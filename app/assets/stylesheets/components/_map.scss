@@ -1,0 +1,22 @@
+.mapboxgl-popup {
+  max-width: 1000px;
+  background-color: $lighter-black;
+  border-radius: 5px;
+
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: $body-font;
+  color: $lighter-black;
+  font-size: 14px;
+  border: none !important;
+}
+
+.map {
+  padding: 10px;
+}
+
+.mapboxgl-popup-close-button{
+  color: $lighter-black;
+}

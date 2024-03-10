@@ -40,15 +40,15 @@
           </div>
           <div class="profile-container">
             <% @tickets.each do |ticket| %>
-            <div class="container-content">
-              <div class="content-text">
-                <p><%= ticket.category %></p>
-                <p><%= ticket.description %></p>
-                <p><%= ticket.address %></p>
-                <p><%= ticket.total_votes %></p>
-              </div>
-            </div>
-          <% end %>
+              <%= link_to ticket_path(ticket), class: "container-content" do %>
+                <div class="content-text">
+                  <p><%= ticket.category %></p>
+                  <p><%= ticket.description %></p>
+                  <p><%= ticket.address %></p>
+                  <p><%= ticket.total_votes %></p>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -64,13 +64,13 @@
           <div class="profile-container">
             <% @tickets.each do |ticket| %>
               <% if ticket.category == "upgrade" %>
-                <div class="container-content">
+                <%= link_to ticket_path(ticket), class: "container-content" do %>
                   <div class="content-text">
                     <p><%= ticket.description %></p>
                     <p><%= ticket.address %></p>
                     <p><%= ticket.total_votes %></p>
                   </div>
-                </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
@@ -88,13 +88,13 @@
           <div class="profile-container">
             <% @tickets.each do |ticket| %>
               <% if ticket.category == "damage" %>
-                <div class="container-content">
+                <%= link_to ticket_path(ticket), class: "container-content" do %>
                   <div class="content-text">
                     <p><%= ticket.description %></p>
                     <p><%= ticket.address %></p>
                     <p><%= ticket.total_votes %></p>
                   </div>
-                </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>

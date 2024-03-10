@@ -1,3 +1,16 @@
+.ticket-btn{
+  text-decoration:none;
+  padding: 5px;
+  color:$lighter-black;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.ticket-btn:hover{
+  background-color: $red;
+  color: $white;
+}
+
 .btn-container {
   margin: 30px auto;
   max-width: 1000px;
