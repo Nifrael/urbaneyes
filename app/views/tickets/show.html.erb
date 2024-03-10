@@ -14,6 +14,7 @@
     <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %></p>
     <p>Lieu : <%= @ticket.address %></p>
     <p>Description : <%= @ticket.description %></p>
+    <p>Auteur du ticket : <%= @ticket.user.first_name %> <%= @ticket.user.last_name %></p>
   </div>
   <%# <div class="votes-container">
     <button class="btn">Vote UP</button>
@@ -55,11 +56,11 @@
             </div>
           </div>
         </div>
-
     <div class="comments-list">
-      <p>Commentaire 1</p>
-      <p>Commentaire 1</p>
-      <p>Commentaire 1</p>
+      <% @comments.each do |comment| %>
+        <span><i class="fa-regular fa-comment"></i> <%= comment.user.first_name %> <%= comment.user.last_name %> a commenté :</span>
+        <p><%= comment.content %></p>
+      <% end %>
     </div>
   </div>
 </div>
