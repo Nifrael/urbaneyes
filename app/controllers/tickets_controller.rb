@@ -8,12 +8,19 @@ class TicketsController < ApplicationController
         lat: ticket.latitude,
         lng: ticket.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {ticket: ticket}),
-        marker_html: render_to_string(partial: "marker", locals: {ticket: ticket})
+        marker_html: render_to_string(partial: "markers", locals: {ticket: ticket})
       }
     end
   end
 
   def show
+    @markers =
+      {
+        lat: @ticket.latitude,
+        lng: @ticket.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {ticket: @ticket}),
+        marker_html: render_to_string(partial: "marker")
+      }
     @vote = Vote.new
     @comment = Comment.new
   end
@@ -25,7 +32,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.create(ticket_params)
     @ticket.user_id = current_user.id
-    if ticket.save
+    if @ticket.save
       redirect_to ticket_path(@ticket)
     else
       render :new, status: :unprocessable_entity
@@ -48,7 +55,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:photo, :type, :description, :address, :status, :latitude, :longitude, :user_id)
+    params.require(:ticket).permit(:title, :photo, :category, :description, :address, :status, :latitude, :longitude, :user_id)
   end
 
   def find_ticket

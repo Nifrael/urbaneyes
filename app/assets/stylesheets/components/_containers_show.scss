@@ -35,7 +35,16 @@
 
 // Container des items : photos et map
 
-.item-container {
+.item-container-img {
+  background-color: $button-gray;
+  border-radius: 10px;
+  width: 45%;
+  background-size: cover; /* Ensure the image covers the container */
+  background-position: center; /* Center the image horizontally and vertically */
+  background-repeat: no-repeat;
+}
+
+.item-container-map {
   background-color: $button-gray;
   border-radius: 10px;
   width: 45%;

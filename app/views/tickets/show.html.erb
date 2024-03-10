@@ -3,11 +3,12 @@
     <h2><%= @ticket.category == "upgrade" ? "Proposition d'amélioration" : "Déclaration de dégât" %></h2>
   </div>
   <div class="photo-map">
-    <div class="item-container">
-      <p>Test<%= @ticket.photo %></p>
+    <div class="item-container-img" <% if @ticket.photo.attached? %> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ticket.photo.key %>')"<% end %>>
     </div>
-    <div class="item-container">
-      <p>Test<%= @ticket.photo %></p>
+    <div class="item-container-map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
   <div class="infos-container">

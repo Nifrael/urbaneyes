@@ -102,25 +102,28 @@
       </div>
     </div>
 
-
     <div class="dec-container">
       <div class="dec-content">
-        <div class="dec-card-improvement">
-          <div class="image-container">
-            <%= image_tag("Improvement.png", class:"image") %>
+        <%= link_to new_ticket_path, class:"prop" do %>
+          <div class="dec-card-improvement">
+            <div class="image-container">
+              <%= image_tag("Improvement.png", class:"image") %>
+            </div>
+            <div class="dec-text">
+              <span>Propose an</span> <h2>Improvement</h2>
+            </div>
           </div>
-          <div class="dec-text">
-            <span>Propose an</span> <h2>Improvement</h2>
+        <% end %>
+        <%= link_to new_ticket_path, class:"prop" do %>
+          <div class="dec-card-damage">
+            <div class="image-container">
+              <%= image_tag("Damage.png", class:"image") %>
+            </div>
+            <div class="dec-text">
+              <span>Declare a</span><h2> Damage</h2>
+            </div>
           </div>
-        </div>
-        <div class="dec-card-damage">
-          <div class="image-container">
-            <%= image_tag("Damage.png", class:"image") %>
-          </div>
-          <div class="dec-text">
-            <span>Declare a</span><h2> Damage</h2>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
