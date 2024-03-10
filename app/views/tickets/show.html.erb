@@ -15,6 +15,7 @@
     <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %></p>
     <p>Lieu : <%= @ticket.address %></p>
     <p>Description : <%= @ticket.description %></p>
+    <p>Auteur du ticket : <%= @ticket.user.first_name %> <%= @ticket.user.last_name %></p>
   </div>
   <%# <div class="votes-container">
     <button class="btn">Vote UP</button>
@@ -40,12 +41,27 @@
   <div class="comments-container">
     <div class="title-comments-bar">
       <h6>Commentaires</h6>
-      <button class="btn">Ajouter un commentaire</button>
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#form">Ajouter un commentaire</button>
     </div>
+
+    <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-5" id="formLabel">Ajouter un commentaire :</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="comment-input">
+                <%= render "comments/form", comment: @comment %>
+              </div>
+            </div>
+          </div>
+        </div>
     <div class="comments-list">
-      <p>Commentaire 1</p>
-      <p>Commentaire 1</p>
-      <p>Commentaire 1</p>
+      <% @comments.each do |comment| %>
+        <span><i class="fa-regular fa-comment"></i> <%= comment.user.first_name %> <%= comment.user.last_name %> a commenté :</span>
+        <p><%= comment.content %></p>
+      <% end %>
     </div>
   </div>
 </div>

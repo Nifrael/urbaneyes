@@ -23,6 +23,7 @@ class TicketsController < ApplicationController
       }
     @vote = Vote.new
     @comment = Comment.new
+    @comments = Comment.where(ticket_id: params[:id])
   end
 
   def new

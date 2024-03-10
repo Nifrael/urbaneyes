@@ -102,6 +102,9 @@
   p {
     border-bottom: 1px solid $button-gray;
   }
+  span {
+    font-weight: 700;
+  }
 }
 
 // Barre de la div commentaires
@@ -126,7 +129,22 @@
 // Liste des commentaires
 
 .comments-list {
-  max-height: 10vh;
+  max-height: 20vh;
   overflow-y: auto;
   padding: 10px;
+}
+
+// Container de l'input du comment
+
+.comment-input {
+  align-self: center;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  textarea {
+    width: 100%;
+    min-height: 20vh;
+    border: 1px solid $lighter-black;
+    border-radius: 5px;
+  }
 }

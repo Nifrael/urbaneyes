@@ -3,8 +3,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.ticket_id = params[:id]
-    @comment.save
+    @comment.ticket_id = params[:ticket_id]
+    if @comment.save
+      redirect_to ticket_path(id: @comment.ticket.id)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
