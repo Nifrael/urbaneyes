@@ -42,7 +42,7 @@
             <% @tickets.each do |ticket| %>
               <%= link_to ticket_path(ticket), class: "container-content" do %>
                 <div class="content-text">
-                  <p><%= ticket.category %></p>
+                  <p><%= ticket.category.capitalize %></p>
                   <p><%= ticket.description %></p>
                   <p><%= ticket.address %></p>
                   <p><%= ticket.total_votes %></p>
