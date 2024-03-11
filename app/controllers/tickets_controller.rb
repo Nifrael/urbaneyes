@@ -2,6 +2,7 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: %i[show edit update destroy]
 
   def index
+
     @tickets = Ticket.all
     @markers = @tickets.geocoded.map do |ticket|
       {
@@ -15,12 +16,12 @@ class TicketsController < ApplicationController
 
   def show
     @markers =
-      {
-        lat: @ticket.latitude,
-        lng: @ticket.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {ticket: @ticket}),
+      [{
+        lat: @ticket.latitude.to_f,
+        lng: @ticket.longitude.to_f,
+        info_window_html: render_to_string(partial: "info_window_show", locals: {ticket: @ticket}),
         marker_html: render_to_string(partial: "marker")
-      }
+      }]
     @vote = Vote.new
     @comment = Comment.new
     @comments = Comment.where(ticket_id: params[:id])

@@ -42,7 +42,7 @@
             <% @tickets.each do |ticket| %>
               <%= link_to ticket_path(ticket), class: "container-content" do %>
                 <div class="content-text">
-                  <p><%= ticket.category %></p>
+                  <p><%= ticket.category.capitalize %></p>
                   <p><%= ticket.description %></p>
                   <p><%= ticket.address %></p>
                   <p><%= ticket.total_votes %></p>
@@ -104,7 +104,7 @@
 
     <div class="dec-container">
       <div class="dec-content">
-        <%= link_to new_ticket_path(category: 'upgrade'), class:"prop" do %>
+        <%= link_to new_ticket_path(category: 'upgrade'), class:"prop-btn" do %>
           <div class="dec-card-improvement">
             <div class="image-container">
               <%= image_tag("Improvement.png", class:"image") %>
@@ -114,7 +114,7 @@
             </div>
           </div>
         <% end %>
-        <%= link_to new_ticket_path(category: 'damage'), class:"prop" do %>
+        <%= link_to new_ticket_path(category: 'damage'), class:"prop-btn" do %>
           <div class="dec-card-damage">
             <div class="image-container">
               <%= image_tag("Damage.png", class:"image") %>

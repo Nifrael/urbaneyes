@@ -5,7 +5,13 @@
     <% end %>
 
     <% if user_signed_in? %>
-    <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="#"
+        <% if current_page?(tickets_path) == false %>
+          class="avatar"
+        <% else %>
+          class="avatar-bordered"
+        <% end %>
+      id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
       </a>
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
