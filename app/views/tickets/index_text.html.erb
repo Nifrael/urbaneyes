@@ -1,4 +1,4 @@
 <% @tickets.each do |ticket| %>
-<%= ticket.photo %>
+<%= cl_image_tag ticket.photo.key, height: 300, width: 400, crop: :fill %>
 <p>Déclaration N°<%= ticket.id %> : <%= ticket.category == "upgrade" ? "Amélioration proposée" : "Dégât déclaré" %></p>
 <% end %>
