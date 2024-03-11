@@ -1,9 +1,8 @@
 <%= simple_form_for(ticket) do |f| %>
   <%= f.input :title, label: "Titre" %>
   <%= f.input :description, label: "Description" %>
-  <%= f.input :category, label: "Catégorie", collection: ["upgrade", "damage"] %>
+  <%= f.hidden_field :category, value: params[:category] %>
   <%= f.input :address, label: "Adresse" %>
-  <%= f.input :status, label: "Statut", collection: ["pending", "ended"] %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, f.object.persisted? ? 'Modifier' : 'Créer'  %>
 <% end %>

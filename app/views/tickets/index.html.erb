@@ -3,3 +3,22 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<button class="floating-button" data-bs-toggle="modal" data-bs-target="#newTicket">
+  <span class="icon">+</span>
+</button>
+
+<div class="modal fade" id="newTicket" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-bottom">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Créer une nouvelle proposition</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= link_to 'Amélioration', new_ticket_path(category: 'upgrade'), class:"btn" %>
+        <%= link_to 'Dégât', new_ticket_path(category: 'damage'), class:"btn" %>
+      </div>
+    </div>
+  </div>
+</div>
