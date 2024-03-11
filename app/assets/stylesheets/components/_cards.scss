@@ -52,6 +52,7 @@
         width: 100px; // Adjust width as needed
         height: 100px; // Adjust height as needed
         object-fit: cover;
+        padding: 0;
       }
     }
   }
@@ -88,6 +89,7 @@
           width: 80px; // Adjust width as needed
           height: 80px; // Adjust height as needed
           object-fit: cover;
+          padding: 0;
         }
       }
     }
@@ -135,6 +137,7 @@
           width: 60px; // Adjust width as needed
           height: 60px; // Adjust height as needed
           object-fit: cover;
+          padding-top: 0;
         }
       }
     }
@@ -170,7 +173,7 @@
 
         img.image {
           width: 350px;
-          padding: 10px;
+          padding: 0px 10px 10px 10px;
 
         }
       }
@@ -222,7 +225,7 @@
 
           img.image {
             width: 225px;
-            padding: 10px;
+            padding: 0px 10px 10px 10px;
 
           }
 
@@ -257,17 +260,18 @@
         h2 {
           font-size: 16px;
           margin-bottom: 2px;
+          padding-bottom: 10px;
         }
 
         .image-container {
           display: flex;
           justify-content: flex-start;
-          align-items: center;
+          align-items: top;
           width:150px;
 
           img.image {
             width: 175px;
-            padding: 10px;
+            padding: 0px 10px 10px 10px;
 
           }
 
