@@ -6,6 +6,14 @@
   border-radius: 4px;
 }
 
+// Propposition de amelioration au declaration de domage
+.prop-btn {
+  text-decoration:none;
+  padding: 5px;
+  color:$lighter-black;
+  border-radius: 4px;
+}
+
 .ticket-btn:hover{
   background-color: $red;
   color: $white;
