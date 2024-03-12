@@ -113,16 +113,16 @@
       .content-text {
         width: 80%; // Adjust width as needed
         padding: 10px 30px;
-        font-size: 11px;
+        font-size: 16px;
 
         p {
           margin: 0;
-          line-height: 12px;
+          line-height: 16px;
         }
 
         h2 {
-          font-size: 16px;
-          margin-bottom: 2px;
+          font-size: 18px;
+          margin-bottom: 4px;
         }
       }
 
@@ -239,7 +239,7 @@
 
   @media (max-width: 576px) {
     max-width: 370px;
-    font-size: 10px;
+    font-size: 16px;
     align-items: center;
 
     .dec-content {
@@ -258,7 +258,7 @@
         margin: 0; // if you cange this margin make sure to change it also in the .dec-card-damage
 
         h2 {
-          font-size: 16px;
+          font-size: 18px;
           margin-bottom: 2px;
           padding-bottom: 10px;
         }
@@ -356,24 +356,24 @@
     margin: auto;
     margin-top: 20px;
     h2 {
-      font-size: 16px;
+      font-size: 20px;
     }
   }
 
   // Media query for smartphones (576px)
   @media (max-width: 576px) {
     max-width: 370px;
-    font-size: 13px;
+    font-size: 16px;
     margin: 0 20px;
     padding: 10px;
     margin: 20px auto;
 
     h2 {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     a {
-      font-size: 13px;
+      font-size: 16px;
     }
   }
 

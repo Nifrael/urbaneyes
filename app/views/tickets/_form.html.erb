@@ -1,8 +1,10 @@
-<%= simple_form_for(ticket) do |f| %>
-  <%= f.input :title, label: "Titre" %>
-  <%= f.input :description, label: "Description" %>
-  <%= f.hidden_field :category, value: params[:category] %>
-  <%= f.input :address, label: "Adresse" %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, f.object.persisted? ? 'Modifier' : 'Créer'  %>
-<% end %>
+<div class="form">
+  <%= simple_form_for(ticket) do |f| %>
+    <%= f.input :title, label: "Titre" %> <!-- input_html: { id:"title" or class:"whatever" } -> This is the way to add some style to the specific inputs -->
+    <%= f.input :description, label: "Description" %>
+    <%= f.hidden_field :category, value: params[:category] %>
+    <%= f.input :address, label: "Adresse" %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, f.object.persisted? ? 'Modifier' : 'Créer'  %>
+  <% end %>
+</div>
