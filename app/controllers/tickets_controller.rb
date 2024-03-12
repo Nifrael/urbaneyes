@@ -28,12 +28,13 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = Ticket.new
+    @ticket = Ticket.new(category: params[:category])
   end
 
   def create
     @ticket = Ticket.create(ticket_params)
     @ticket.user_id = current_user.id
+    @ticket.status = 'pending'
     if @ticket.save
       redirect_to ticket_path(@ticket)
     else
