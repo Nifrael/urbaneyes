@@ -38,17 +38,8 @@
             <h2 class="modal-title fs-5" id="ticketsLabel">Mes propositions</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="profile-container">
-            <% @tickets.each do |ticket| %>
-              <%= link_to ticket_path(ticket), class: "container-content" do %>
-                <div class="content-text">
-                  <p><%= ticket.category.capitalize %></p>
-                  <p><%= ticket.description %></p>
-                  <p><%= ticket.address %></p>
-                  <p><%= ticket.total_votes %></p>
-                </div>
-              <% end %>
-            <% end %>
+          <div class="list-container">
+            <%= render "tickets/list_tickets" %>
           </div>
         </div>
       </div>
@@ -61,18 +52,8 @@
             <h2 class="modal-title fs-5" id="ticketsLabel">Améliorations</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="profile-container">
-            <% @tickets.each do |ticket| %>
-              <% if ticket.category == "upgrade" %>
-                <%= link_to ticket_path(ticket), class: "container-content" do %>
-                  <div class="content-text">
-                    <p><%= ticket.description %></p>
-                    <p><%= ticket.address %></p>
-                    <p><%= ticket.total_votes %></p>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
+          <div class="list-container">
+            <%= render "tickets/upgrade_tickets" %>
           </div>
         </div>
       </div>
@@ -85,20 +66,11 @@
             <h2 class="modal-title fs-5" id="ticketsLabel">Dégâts</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="profile-container">
-            <% @tickets.each do |ticket| %>
-              <% if ticket.category == "damage" %>
-                <%= link_to ticket_path(ticket), class: "container-content" do %>
-                  <div class="content-text">
-                    <p><%= ticket.description %></p>
-                    <p><%= ticket.address %></p>
-                    <p><%= ticket.total_votes %></p>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
+          <div class="list-container">
+            <%= render "tickets/damage_tickets" %>
           </div>
         </div>
+      </div>
       </div>
     </div>
 
@@ -133,20 +105,8 @@
           <h2>Vote for the best proposals of the community</h2>
         </div>
         <div class="l-m-buttons">
-          <button class="btn-l-m" data-bs-toggle="modal" data-bs-target="#list">List</button>
-            <div class="modal fade" id="list" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="listLabel">Ajouter un commentaire :</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="comment-input">
-                    <%= render "tickets/list_tickets" %>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <a href="" class="btn-l-m">List</a>
+          <br>
           <br>
           <a href="" class="btn-l-m">Map</a>
         </div>
