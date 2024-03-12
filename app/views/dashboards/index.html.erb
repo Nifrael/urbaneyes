@@ -133,8 +133,20 @@
           <h2>Vote for the best proposals of the community</h2>
         </div>
         <div class="l-m-buttons">
-          <a href="" class="btn-l-m">List</a>
-          <br>
+          <button class="btn-l-m" data-bs-toggle="modal" data-bs-target="#list">List</button>
+            <div class="modal fade" id="list" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="listLabel">Ajouter un commentaire :</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="comment-input">
+                    <%= render "tickets/list_tickets" %>
+                  </div>
+                </div>
+              </div>
+            </div>
           <br>
           <a href="" class="btn-l-m">Map</a>
         </div>
