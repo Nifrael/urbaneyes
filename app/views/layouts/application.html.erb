@@ -14,10 +14,12 @@
   </head>
 
   <body data-theme="dark"
-  <% if current_page?(tickets_path) == false %>
-    class="content"
-  <% end %>>
-    <%= render "shared/navbar" %>
+    <% if current_page?(tickets_path) == false %>
+      class="content"
+    <% end %>>
+    <% unless current_page?(root_path) %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= render "shared/flashes" %>
 
     <%= yield %>

@@ -8,8 +8,8 @@
 
 .ticket-card {
   width: 90%;
-  color: $lighter-black;
-  background-color: $button-gray;
+  color: var(--color-lighter-black);
+  background-color: var(--color-button-gray);
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 5px;
@@ -17,10 +17,10 @@
   grid-template-columns: 20% 50% 15% 15%;
   align-items: end;
   #green {
-    color: $green;
+    color: var(--color-green);
   }
   #red {
-    color: $red;
+    color: var(--color-red);
   }
   a {
     text-decoration: none;

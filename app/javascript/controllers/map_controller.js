@@ -46,12 +46,12 @@ export default class extends Controller {
   }
 
   #updateMapStyle(theme) {
-    const styleUrl = theme === 'dark' ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/albertnikolli/cltkg94oo01gp01pj4f04dyvk';
+    const styleUrl = theme === 'dark' ? 'mapbox://styles/albertnikolli/cltpnabmu008t01qw8p5qeot2' : 'mapbox://styles/albertnikolli/cltkg94oo01gp01pj4f04dyvk';
     this.map.setStyle(styleUrl);
   }
 
   getCurrentMapStyle() {
     const theme = localStorage.getItem('theme') || 'light';
-    return theme === 'dark' ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/albertnikolli/cltkg94oo01gp01pj4f04dyvk';
+    return theme === 'dark' ? 'mapbox://styles/albertnikolli/cltpnabmu008t01qw8p5qeot2' : 'mapbox://styles/albertnikolli/cltkg94oo01gp01pj4f04dyvk';
   }
 }
