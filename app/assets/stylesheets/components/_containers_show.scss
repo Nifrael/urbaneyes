@@ -8,7 +8,7 @@
     font-size: 10px;
     margin: 5px auto;
     margin: auto;
-    color: $lighter-black;
+    color: var(--color-lighter-black);
 
   }
 }
@@ -36,7 +36,7 @@
 // Container des items : photos et map
 
 .item-container-img {
-  background-color: $button-gray;
+  background-color: var(--color-button-gray);
   border-radius: 10px;
   width: 45%;
   background-size: cover; /* Ensure the image covers the container */
@@ -45,7 +45,7 @@
 }
 
 .item-container-map {
-  background-color: $button-gray;
+  background-color: var(--color-button-gray);
   border-radius: 10px;
   width: 45%;
 }
@@ -83,11 +83,11 @@
   }
 
   .btn-green {
-    background-color: $green;
+    background-color: var(--color-green);
   }
 
   .btn-red {
-    background-color: $red;
+    background-color: var(--color-red);
   }
 }
 
@@ -146,5 +146,21 @@
     min-height: 20vh;
     border: 1px solid $lighter-black;
     border-radius: 5px;
+  }
+}
+
+.modal-content {
+  background-color: var(--color-body);
+
+  h2 {
+    color: var(--color-black);
+  }
+
+  h5 {
+    color: var(--color-black);
+  }
+
+  .btn-close {
+    color: red;
   }
 }

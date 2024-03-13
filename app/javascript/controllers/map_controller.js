@@ -12,11 +12,14 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/albertnikolli/cltkg94oo01gp01pj4f04dyvk"
+      style: this.getCurrentMapStyle()
+
     })
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    window.addEventListener('themeChanged', e => this.#updateMapStyle(e.detail.theme));
   }
 
   #addMarkersToMap() {
@@ -42,4 +45,13 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 40, maxZoom: 14, duration: 0 })
   }
 
+  #updateMapStyle(theme) {
+    const styleUrl = theme === 'dark' ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/albertnikolli/cltkg94oo01gp01pj4f04dyvk';
+    this.map.setStyle(styleUrl);
+  }
+
+  getCurrentMapStyle() {
+    const theme = localStorage.getItem('theme') || 'light';
+    return theme === 'dark' ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/albertnikolli/cltkg94oo01gp01pj4f04dyvk';
+  }
 }

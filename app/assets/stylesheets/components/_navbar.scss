@@ -16,3 +16,21 @@
   width: 60px;
   border-radius: 10%;
 }
+
+.dropdown-menu {
+  background-color: var(--color-body);
+
+
+  .dropdown-item {
+    color: var(--color-lighter-black);
+  }
+}
+
+.form-check-label {
+  color: var(--color-lighter-black);
+  line-height: 2.5rem;
+}
+
+.form-check-input {
+  transform: scale(2);
+}

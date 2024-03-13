@@ -29,3 +29,51 @@ $background-gray-dark: #2C2F33;
 $button-gray-dark: #3E4043;
 $green-improve-dark: #97C89F;
 $red-damage-dark: #E57373;
+
+:root {
+  // Thème clair
+  --color-red: #FF5757;
+  --color-black: #000000;
+  --color-lighter-black: rgba(0, 0, 0, 0.8);
+  --color-text-gray: #2C2928;
+  --color-blue: #0D6EFD;
+  --color-yellow: #FFC65A;
+  --color-orange: #E67E22;
+  --color-green: #1EDD88;
+  --color-background-gray: #F1EEE7;
+  --color-button-gray: #FFFDFD;
+  --color-green-improve: #B9EDA9;
+  --color-red-damage: #F49292;
+  --color-body: #F0EEE7;
+
+  // Thème sombre
+  --color-red-dark: #DB4D4D;
+  --color-black-dark: #E8E6E1;
+  --color-lighter-black-dark: rgba(255, 255, 255, 0.8);
+  --color-text-gray-dark: #CAC7C4;
+  --color-blue-dark: #375A7F;
+  --color-yellow-dark: #D1B055;
+  --color-orange-dark: #CF711F;
+  --color-green-dark: #16A085;
+  --color-background-gray-dark: #2C2F33;
+  --color-button-gray-dark: #3E4043;
+  --color-green-improve-dark: #97C89F;
+  --color-red-damage-dark: #E57373;
+  --color-body-dark: #0F111A;
+}
+
+[data-theme="dark"] {
+  --color-red: var(--color-red-dark);
+  --color-black: var(--color-black-dark);
+  --color-lighter-black: var(--color-lighter-black-dark);
+  --color-text-gray: var(--color-text-gray-dark);
+  --color-blue: var(--color-blue-dark);
+  --color-yellow: var(--color-yellow-dark);
+  --color-orange: var(--color-orange-dark);
+  --color-green: var(--color-green-dark);
+  --color-background-gray: var(--color-background-gray-dark);
+  --color-button-gray: var(--color-button-gray-dark);
+  --color-green-improve: var(--color-green-improve-dark);
+  --color-red-damage: var(--color-red-damage-dark);
+  --color-body: var(--color-body-dark);
+}
