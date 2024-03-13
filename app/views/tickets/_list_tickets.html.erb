@@ -1,0 +1,28 @@
+<% @tickets.each do |ticket| %>
+  <div class="ticket-card">
+    <div class="ticket-logo">
+    <%= link_to ticket_path(id: ticket.id) do %>
+      <% if ticket.category == "damage" %>
+        <%= image_tag "LogoDamage.png", id: "logo-ticket-card" %>
+      <% else %>
+        <%= image_tag "LogoImprove.png", id: "logo-ticket-card" %>
+      <% end %>
+    <% end %>
+    </div>
+    <div class="ticket-card-text">
+      <%= ticket.title %>
+    </div>
+    <div class="ticket-card-text">
+      <span id="green">
+        <i class="fa-regular fa-thumbs-up"></i>
+        <%= ticket.total_up_votes %>
+      </span>
+    </div>
+    <div class="ticket-card-text">
+      <span id="red">
+        <i class="fa-regular fa-thumbs-down"></i>
+        <%= ticket.total_down_votes %>
+      </span>
+    </div>
+  </div>
+<% end %>
