@@ -5,11 +5,14 @@
   <div class="photo-map">
     <div class="item-container-img" <% if @ticket.photo.attached? %> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ticket.photo.key %>')"<% end %>>
     </div>
-    <div class="item-container-map"
+  <div class="item-container-map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  </div>
+  </div>
+  <div class="ticket-title">
+    <h3><%= @ticket.title %></h3>
   </div>
   <div class="infos-container">
     <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %></p>
@@ -17,10 +20,6 @@
     <p>Description : <%= @ticket.description %></p>
     <p>Auteur du ticket : <%= @ticket.user.first_name %> <%= @ticket.user.last_name %></p>
   </div>
-  <%# <div class="votes-container">
-    <button class="btn">Vote UP</button>
-    <button class="btn">Vote DOWN</button>
-  </div> %>
   <div class="votes-container">
     <%= form_with(url: votes_path, method: :post, local: true) do |form| %>
       <%= form.hidden_field :ticket_id, value: @ticket.id %>
@@ -29,7 +28,6 @@
         <i class="fa-regular fa-thumbs-up"></i> <%= @ticket.total_up_votes %>
       <% end %>
     <% end %>
-
     <%= form_with(url: votes_path, method: :post, local: true) do |form| %>
       <%= form.hidden_field :ticket_id, value: @ticket.id %>
       <%= form.hidden_field :up_vote, value: false %>
@@ -37,31 +35,30 @@
         <i class="fa-regular fa-thumbs-down"></i> <%= @ticket.total_down_votes %>
       <% end %>
     <% end %>
-</div>
+  </div>
   <div class="comments-container">
     <div class="title-comments-bar">
       <h6>Commentaires</h6>
       <button class="btn" data-bs-toggle="modal" data-bs-target="#form">Ajouter un commentaire</button>
     </div>
-
     <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="modal-title fs-5" id="formLabel">Ajouter un commentaire :</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="comment-input">
-                <%= render "comments/form", comment: @comment %>
-              </div>
-            </div>
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="formLabel">Ajouter un commentaire :</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="comment-input">
+            <%= render "comments/form", comment: @comment %>
           </div>
         </div>
-    <div class="comments-list">
-      <% @comments.each do |comment| %>
-        <span><i class="fa-regular fa-comment"></i> <%= comment.user.first_name %> <%= comment.user.last_name %> a commenté :</span>
-        <p><%= comment.content %></p>
-      <% end %>
+      </div>
     </div>
+  </div>
+  <div class="comments-list">
+    <% @comments.each do |comment| %>
+      <span><i class="fa-regular fa-comment"></i> <%= comment.user.first_name %> <%= comment.user.last_name %> a commenté :</span>
+      <p><%= comment.content %></p>
+    <% end %>
   </div>
 </div>
