@@ -1,1 +1,22 @@
-<h1><%= link_to "Index", tickets_path %></h1>
+<div class="home-page-container-text">
+  <h2>Votre regard transforme la ville</h2>
+  <p>Signalez les problèmes, proposez des idées.</p>
+  <p>Nous les portons à l'attention de votre municipalité.</p>
+</div>
+<div class="button-div">
+  <%= link_to "Démarrer", tickets_path, id:"button-homepage" %>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+    var changeColorButton = document.getElementById("button-homepage");
+
+    // Function to change the color on button click
+    changeColorButton.addEventListener("click", function() {
+        // Toggle class to change color
+        changeColorButton.classList.toggle("clicked");
+    });
+});
+</script>
