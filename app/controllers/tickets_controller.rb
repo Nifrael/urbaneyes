@@ -2,7 +2,8 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: %i[show edit update destroy]
 
   def index
-
+    @tickets_damage = Ticket.where(category: "damage")
+    @tickets_upgrade = Ticket.where(category: "upgrade")
     @tickets = Ticket.all
     @markers = @tickets.geocoded.map do |ticket|
       {

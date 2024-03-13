@@ -90,6 +90,26 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+.floating-button-list {
+  background-color: $green;
+  color: $red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1050;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
 .icon {
   display: block;
   line-height: inherit;
