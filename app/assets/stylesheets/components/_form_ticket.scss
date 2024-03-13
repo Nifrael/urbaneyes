@@ -1,7 +1,7 @@
 .form-container {
   display: flex;
-  color: $lighter-black;
-  background-color: $button-gray;
+  color: var(--color-lighter-black);
+  background-color: var(--color-button-gray);
   border-radius: 20px;
 
   @media (max-width: 576px) {
