@@ -9,20 +9,20 @@
       <% end %>
     <% end %>
     </div>
-    <div class="ticket-card-text">
-      <%= ticket.title %>
-    </div>
-    <div class="ticket-card-text">
-      <span id="green">
-        <i class="fa-regular fa-thumbs-up"></i>
-        <%= ticket.total_up_votes %>
-      </span>
-    </div>
-    <div class="ticket-card-text">
-      <span id="red">
-        <i class="fa-regular fa-thumbs-down"></i>
-        <%= ticket.total_down_votes %>
-      </span>
+    <div class="card-infos">
+      <div class="ticket-card-text">
+        <%= ticket.title %>
+      </div>
+      <div class="ticket-card-votes">
+        <span id="green">
+          <i class="fa-regular fa-thumbs-up"></i>
+          <%= ticket.total_up_votes %>
+        </span>
+        <span id="red">
+          <i class="fa-regular fa-thumbs-down"></i>
+          <%= ticket.total_down_votes %>
+        </span>
+      </div>
     </div>
   </div>
 <% end %>

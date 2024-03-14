@@ -14,7 +14,7 @@
   padding: 10px;
   margin-bottom: 5px;
   display: grid;
-  grid-template-columns: 20% 50% 15% 15%;
+  grid-template-columns: 20% 80%;
   align-items: end;
   #green {
     color: var(--color-green);
@@ -28,8 +28,10 @@
 }
 
 .ticket-logo {
-  width: 30px;
-  height: 30px;
+  align-self: center;
+  margin: auto;
+  width: 40px;
+  height: 40px;
   #logo-ticket-card {
     width: 100%;
     height: 100%;
@@ -37,4 +39,21 @@
     left: 0;
     top: 0;
   }
+}
+
+.card-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ticket-card-votes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.ticket-card-text {
+  align-self: center;
+  font-weight: bolder;
 }
