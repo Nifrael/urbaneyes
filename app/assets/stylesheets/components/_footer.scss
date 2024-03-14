@@ -1,0 +1,9 @@
+.footer {
+  justify-content: space-between;
+  background-color: transparent !important; /* Set navbar background to transparent */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
