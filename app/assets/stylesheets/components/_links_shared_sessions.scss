@@ -1,0 +1,17 @@
+.link {
+  text-decoration: none !important;
+  color: var(--color-lighter-black);
+}
+
+.link:hover {
+  color: var(--color-red);
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.remember-me-checkbox {
+  margin-left: 10px;
+  margin-top: 10px;
+}
