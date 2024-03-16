@@ -48,8 +48,8 @@ class TicketsController < ApplicationController
   end
 
   def update
-    @ticket.update
-    redirect_to ticket_path(@ticket)
+    @ticket.update(ticket_params)
+    redirect_to ticket_path(@ticket), notice: 'Ticket was successfully updated.'
   end
 
   def destroy
