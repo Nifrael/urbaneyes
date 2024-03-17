@@ -10,5 +10,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
+  patch '/geolocation/:id', to: 'geolocation#update'
+
+  patch '/address_geolocation/:id', to: 'address_geolocation#update'
+
   resources :dashboards, only: [:index]
 end
