@@ -1,16 +1,35 @@
 <div class="container">
   <div class="ticket-title">
-    <h2><%= @ticket.category == "upgrade" ? "Proposition d'amélioration" : "Déclaration de dégât" %></h2>
+    <h2><%= @ticket.category == "upgrade" ? "Proposition d'amélioration" : "Déclaration de dégât" %>
+        <% if current_user.id == @ticket.user_id %>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editTicketModal">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+        <% end %>
+      <div class="modal fade" id="editTicketModal" tabindex="-1" aria-labelledby="editTicketModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editTicketModalLabel">Modifier le Ticket</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= render 'form', ticket: @ticket %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </h2>
   </div>
   <div class="photo-map">
     <div class="item-container-img" <% if @ticket.photo.attached? %> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ticket.photo.key %>')"<% end %>>
-    </div>
+  </div>
   <div class="item-container-map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  </div>
+</div>
   <div class="ticket-title">
     <h3><%= @ticket.title %></h3>
   </div>
