@@ -12,7 +12,7 @@
   background-color: var(--color-button-gray);
   border-radius: 20px;
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: grid;
   grid-template-columns: 20% 80%;
   align-items: end;
@@ -54,6 +54,11 @@
 }
 
 .ticket-card-text {
+  align-self: center;
+  font-weight: bolder;
+}
+
+.kms {
   align-self: center;
   font-weight: bolder;
 }
