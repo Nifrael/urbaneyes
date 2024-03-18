@@ -1,5 +1,5 @@
 <div class="content container">
-  <h2>Resend unlock instructions</h2>
+  <h2 class="dark">Resend unlock instructions</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, class:"mb-3" }) do |f| %>
     <%= f.error_notification %>
@@ -7,6 +7,7 @@
 
     <div class="form-inputs">
       <%= f.input :email,
+                  label_html: {class: "dark"},
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" } %>

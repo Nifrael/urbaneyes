@@ -1,14 +1,16 @@
 <div class="container content" >
 
-  <h2>Log in</h2>
+  <h2 class="dark">Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html:{ class:"mb-3" }) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,
+                  label_html: {class: "dark"},
                   required: false,
                   autofocus: true,
                   input_html: { autocomplete: "email" } %>
       <%= f.input :password,
+                  label_html: {class: "dark"},
                   required: false,
                   input_html: { autocomplete: "current-password" } %>
       <div class="remember-me-checkbox">
