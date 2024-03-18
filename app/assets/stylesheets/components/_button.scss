@@ -115,3 +115,43 @@
   line-height: inherit;
   text-align: inherit;
 }
+
+.floatting-button-home {
+  background-color: var(--color-green);
+  color: var(--color-red);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 140px;
+  right: 10px;
+  z-index: 1050;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.floatting-button-location {
+  background-color: var(--color-green);
+  color: var(--color-red);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 75px;
+  right: 10px;
+  z-index: 1050;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}

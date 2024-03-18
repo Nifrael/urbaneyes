@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
         marker_html: render_to_string(partial: "markers", locals: {ticket: ticket})
       }
     end
+    @user = current_user
   end
 
   def show
