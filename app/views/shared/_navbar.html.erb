@@ -6,10 +6,17 @@
         <%= image_tag('LogoWhiteTransparent.png', class: 'dark-theme-image') %>
       </div>
     <% end %>
-
-    <div class="form-check form-switch" data-controller="dark">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle">
-      <%# <label class="form-check-label" for="flexSwitchCheckDefault">Mode sombre</label> %>
+    <div class="d-flex justify-content-between">
+      <span class="material-symbols-outlined">
+        light_mode
+      </span>
+      <div class="form-check form-switch" data-controller="dark">
+        <input class="form-check-input mx-4" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle">
+        <%# <label class="form-check-label" for="flexSwitchCheckDefault">Mode sombre</label> %>
+      </div>
+      <span class="material-symbols-outlined">
+        dark_mode
+      </span>
     </div>
 
     <% if user_signed_in? %>
@@ -19,22 +26,26 @@
         <% else %>
           class="avatar-bordered"
         <% end %>
-<<<<<<< HEAD
       data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-=======
-      id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag "https://www.lafabriquedeladanse.fr/wp-content/uploads/2018/06/Jiri-1-1-600x800.jpg", class: "avatar", alt: "dropdown menu" %>
->>>>>>> eb6b19a14ef70c6440d5ca30361676a7ff5bf236
       </a>
       <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdroped with scrolling</h5>
+          <h4>Menu</h4>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <%= link_to "Tableau de bord", dashboards_path, class: "link d-block" %>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"link" %>
+          <ul>
+            <li><%= link_to "Tableau de bord", dashboards_path, class: "link d-block" %></li>
+            <li><%= link_to "Edit my profile", edit_user_registration_path, class: "link d-block" %></li>
+            <li></li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"link" %></li>
+          </ul>
+
         </div>
       </div>
     </div>
