@@ -1,4 +1,4 @@
-<% @tickets.each do |ticket| %>
+<% @tickets_by_distance.each do |ticket| %>
   <div class="ticket-card">
     <div class="ticket-logo">
     <%= link_to ticket_path(id: ticket.id) do %>
@@ -21,6 +21,11 @@
         <span id="red">
           <i class="fa-regular fa-thumbs-down"></i>
           <%= ticket.total_down_votes %>
+        </span>
+      </div>
+      <div class="kms">
+        <span>
+          <%= ticket.distance_to([current_user.latitude, current_user.longitude]).round(2) %> kms
         </span>
       </div>
     </div>
