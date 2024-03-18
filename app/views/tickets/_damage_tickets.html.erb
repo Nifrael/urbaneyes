@@ -23,6 +23,11 @@
           <%= ticket.total_down_votes %>
         </span>
       </div>
+      <div class="kms">
+        <span>
+          <%= ticket.distance_to([current_user.latitude, current_user.longitude]).round(2) %> kms
+        </span>
+      </div>
     </div>
   </div>
 <% end %>
