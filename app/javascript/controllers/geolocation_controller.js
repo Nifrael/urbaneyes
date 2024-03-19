@@ -10,8 +10,11 @@ export default class extends Controller {
 
   static values = {
     userId: Number,
+    userIdForTicket: Number,
     address: String
   }
+
+  static targets = ["input"];
 
   connect() {
   }
@@ -22,6 +25,11 @@ export default class extends Controller {
     navigator.geolocation.getCurrentPosition(this._success.bind(this), this._error, options);
   }
 
+  updateUserLocationForNewTicket() {
+    navigator.geolocation.getCurrentPosition(this._successForTicket.bind(this), this._error, options);
+    console.log("coucou toi")
+  }
+
   _success(pos) {
     const coordinates = pos.coords;
     let longitude = coordinates.longitude
@@ -30,6 +38,14 @@ export default class extends Controller {
     this._updateUser(longitude, latitude);
 
     this._refreshPage()
+  }
+
+  _successForTicket(pos) {
+    const coordinates = pos.coords;
+    let longitude = coordinates.longitude
+    let latitude = coordinates.latitude
+
+    this._updateUserForTicket(longitude, latitude);
   }
 
   _error() {
@@ -51,6 +67,27 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then(data => {
+      })
+  }
+
+  _updateUserForTicket(longitude, latitude) {
+    const currentUserId = this.userIdForTicketValue
+    console.log(currentUserId)
+    const inputToFill = this.inputTarget
+    console.log(inputToFill)
+
+    fetch (`/geolocation/update`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({ user_id: currentUserId, latitude: latitude, longitude: longitude })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.dir(data)
+        inputToFill.value = data.current_position_address
       })
   }
 

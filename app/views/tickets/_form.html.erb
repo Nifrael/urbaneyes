@@ -3,7 +3,22 @@
     <%= f.input :title, label: "Titre" %> <!-- input_html: { id:"title" or class:"whatever" } -> This is the way to add some style to the specific inputs -->
     <%= f.input :description, label: "Description" %>
     <%= f.hidden_field :category, value: (@ticket.persisted? ? @ticket.category : params[:category]) %>
-    <%= f.input :address, label: "Adresse" %>
+    <div class="input-group mb-3"
+    data-controller="geolocation"
+    data-geolocation-user-id-for-ticket-value="<%= current_user.id %>">
+      <%= f.input :address, label: "Adresse",
+        input_html: { data: {
+        geolocation_target: "input"
+        }
+        }
+      %>
+      <button
+      data-action="click->geolocation#updateUserLocationForNewTicket"
+      class="floatting-button-location" type="button">Button</button>
+      <div class="input-group-append">
+
+      </div>
+    </div>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, f.object.persisted? ? 'Modifier' : 'Créer'  %>
   <% end %>
