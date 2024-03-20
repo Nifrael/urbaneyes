@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
       }
     end
     @user = current_user
+    @tickets_by_distance = distance_by_kilometers(@tickets)
   end
 
   def show
@@ -67,5 +68,9 @@ class TicketsController < ApplicationController
 
   def find_ticket
     @ticket = Ticket.find(params[:id])
+  end
+
+  def distance_by_kilometers(tickets)
+    tickets.sort_by { |ticket| ticket.distance_to([current_user.latitude, current_user.longitude]) }
   end
 end
