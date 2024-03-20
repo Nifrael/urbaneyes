@@ -33,6 +33,7 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new(category: params[:category])
     @tickets = Ticket.all
+    @user = current_user.id
   end
 
   def create
