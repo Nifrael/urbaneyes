@@ -8,7 +8,7 @@
     data-geolocation-user-id-for-ticket-value="<%= current_user.id %>">
       <%= f.input :address, label: "Adresse",
         input_html: { data: {
-        geolocation_target: "input"} } %>
+            geolocation_target: "input"} } %>
       <button
         data-action="click->geolocation#updateUserLocationForNewTicket"
         class="btn-input" type="button"><i class="fa-solid fa-location-dot"></i></button>
