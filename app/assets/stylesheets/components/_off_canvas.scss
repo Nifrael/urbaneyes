@@ -1,0 +1,25 @@
+.offcanvas {
+  height: 100vh;
+  opacity: 0.9;
+  width: 70% !important;
+
+}
+
+.offcanvas-header {
+  text-align: center;
+  background-color: var(--color-body)!important;
+  color: var(--color-lighter-black)!important;
+}
+
+.offcanvas-body {
+  background-color:  var(--color-body);
+  ul {
+    list-style: none;
+    line-height: 30px;
+  }
+
+}
+
+.btn-close {
+
+}
