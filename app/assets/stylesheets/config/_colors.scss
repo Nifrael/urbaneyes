@@ -3,7 +3,7 @@
 // For example:
 $red: #FF5757; // This would be the color for the buttons when focused
 $black: #000000;
-$lighter-black:rgba(0,0,0,0.8); // This would be the color for the text
+$lighter-black:#000000cc; // This would be the color for the text
 $text-gray: #2C2928; // This would be also a color for text
 $blue: #0D6EFD;
 $yellow: #FFC65A;
@@ -13,7 +13,8 @@ $background-gray: #F1EEE7; // This would be the color used as a backgroud for al
 $button-gray: #FFFDFD; // This would be the color of the buttons when not focused
 $green-improve: #B9EDA9; // color used for the improvement button
 $red-damage: #F49292; // color used for the red damage
-
+$background-color-btn-index: rgba(255, 255, 255, 0.8);// background floating buttons, index
+$color-btn-index: rgba(0, 0, 0, 0.8);
 
 //Dark mode
 
@@ -29,12 +30,14 @@ $background-gray-dark: #2C2F33;
 $button-gray-dark: #3E4043;
 $green-improve-dark: #97C89F;
 $red-damage-dark: #E57373;
+$background-color-btn-index-dark: rgba(255, 255, 255, 0.8);
+$color-btn-index-dark: rgba(0, 0, 0, 0.8);
 
 :root {
   // Thème clair
   --color-red: #FF5757;
   --color-black: #000000;
-  --color-lighter-black: rgba(0, 0, 0, 0.8);
+  --color-lighter-black: #000000cc;
   --color-text-gray: #2C2928;
   --color-blue: #0D6EFD;
   --color-yellow: #FFC65A;
@@ -45,11 +48,13 @@ $red-damage-dark: #E57373;
   --color-green-improve: #B9EDA9;
   --color-red-damage: #F49292;
   --color-body: #F0EEE7;
+  --color-background-color-btn-index:rgb(255, 255, 255 );
+  --color-color-btn-index: rgb(0, 0, 0 );
 
   // Thème sombre
   --color-red-dark: #DB4D4D;
   --color-black-dark: #E8E6E1;
-  --color-lighter-black-dark: rgba(255, 255, 255, 0.8);
+  --color-lighter-black-dark: #ffffffcc;
   --color-text-gray-dark: #CAC7C4;
   --color-blue-dark: #375A7F;
   --color-yellow-dark: #D1B055;
@@ -60,6 +65,8 @@ $red-damage-dark: #E57373;
   --color-green-improve-dark: #97C89F;
   --color-red-damage-dark: #E57373;
   --color-body-dark: #0F111A;
+  --color-background-color-btn-index-dark:rgb(0, 0, 0);
+  --color-color-btn-index-dark: rgb(255, 255, 255);
 }
 
 [data-theme="dark"] {
@@ -76,4 +83,6 @@ $red-damage-dark: #E57373;
   --color-green-improve: var(--color-green-improve-dark);
   --color-red-damage: var(--color-red-damage-dark);
   --color-body: var(--color-body-dark);
+  --color-background-color-btn-index: var(--color-background-color-btn-index-dark);
+  --color-color-btn-index: var(--color-color-btn-index-dark);
 }
