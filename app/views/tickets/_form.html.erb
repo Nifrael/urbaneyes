@@ -3,7 +3,11 @@
     <%= f.input :title, label: "Titre" %> <!-- input_html: { id:"title" or class:"whatever" } -> This is the way to add some style to the specific inputs -->
     <%= f.input :description, label: "Description" %>
     <%= f.hidden_field :category, value: (@ticket.persisted? ? @ticket.category : params[:category]) %>
-    <%= f.input :address, label: "Adresse" %>
+    <%= f.input :address,
+                label: "Adresse",
+                input_html: {data: {address_autocomplete_target: "address"}},
+                wrapper_html: {data: {controller: "address_autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+    %>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, f.object.persisted? ? 'Modifier' : 'Créer'  %>
   <% end %>
