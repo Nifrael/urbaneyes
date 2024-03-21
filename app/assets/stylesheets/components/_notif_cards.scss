@@ -1,0 +1,27 @@
+.notification-card {
+  width: 100%;
+  color: var(--color-lighter-black);
+  background-color: var(--color-button-gray);
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.notification-name-and-time {
+
+}
+
+.text-notification {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.link-notification-card {
+  a {
+    text-decoration: none;
+  }
+}
