@@ -2,6 +2,7 @@
   height: 100vh;
   opacity: 0.9;
   width: 70% !important;
+  z-index: 1100 !important;
 
 }
 
@@ -20,6 +21,14 @@
 
 }
 
-.btn-close {
+// offcanvas for the + button (add ticket)
+#offcanvasBottomLeft {
+  width: 100% !important;
+  height: 80% !important;
+}
 
+// offcanvas for the list button
+#offcanvasBottomRight {
+  width: 100% !important;
+  height: 80% !important;
 }
