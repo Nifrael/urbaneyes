@@ -12,10 +12,13 @@
   // transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   box-shadow: none !important;
 }
-
-.mapboxgl-ctrl-geocoder--icon, mapboxgl-ctrl-geocoder--icon-search {
+button.mapboxgl-ctrl-geocoder--button  {
+  background-color: var(--bs-body-bg) !important;
+}
+.mapboxgl-ctrl-geocoder--icon, .mapboxgl-ctrl-geocoder--icon-search  {
   padding-top: 5px;
   width: 30px !important;
   height: 30px !important;
+  background-color: var(--bs-body-bg) !important;
 
 }
