@@ -1,0 +1,13 @@
+<div class="container hub"
+  data-controller="hub-subscription"
+  data-hub-subscription-hub-id-value="<%= @hub.id %>"
+  data-hub-subscription-user-id-value="<%= current_user.id %>">
+
+  <h1>Bienvenue, <%= current_user.first_name %> !</h1>
+
+  <% @notifications.each do |notification| %>
+    <div class="notifications" data-hub-subscription-target="notification">
+      <%= render partial: "notification", locals: { notification: notification } %>
+    </div>
+  <% end %>
+</div>

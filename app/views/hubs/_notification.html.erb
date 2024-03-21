@@ -1,0 +1,13 @@
+<div class="link-notification-card">
+<%= link_to ticket_path(notification.comment.ticket.id) do %>
+<div class="notification-card">
+  <div class="notification-name-and-time">
+    <strong><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></strong>
+    <i><%= notification.created_at.strftime("%A %d %B %Y à %H:%M:%S") %></i>
+  </div>
+  <div class="text-notification">
+    <p>A commenté votre ticket : <%= notification.comment.ticket.title %></p>
+  </div>
+</div>
+  <% end %>
+</div>
