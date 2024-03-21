@@ -7,10 +7,20 @@
       </div>
     <% end %>
 
-  <div class="form-check form-switch" data-controller="dark">
-    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle">
+  <%# <div class="form-check form-switch" data-controller="dark"> %>
+    <%# <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle"> %>
     <%# <label class="form-check-label" for="flexSwitchCheckDefault">Mode sombre</label> %>
+  <%# </div> %>
+
+  <div data-controller="dark">
+    <div class="toggle" title="toggle dark mode">
+      <label>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle">
+        <span></span>
+      </label>
+    </div>
   </div>
+
 
     <% if user_signed_in? %>
     <a href="#"
