@@ -7,6 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Notification.destroy_all
+Hub.destroy_all
 Vote.destroy_all
 Comment.destroy_all
 Ticket.destroy_all
@@ -79,6 +82,10 @@ dolores = User.create(
   password: "test1234",
   photo: ""
 )
+
+User.all.each do |user|
+  user.hub = Hub.create(user: user)
+end
 
 puts "----------------------------------------------------------------"
 puts "#{User.count} Users created"
