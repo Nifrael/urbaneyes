@@ -14,7 +14,7 @@ export default class extends Controller {
     address: String
   }
 
-  static targets = ["input"];
+  static targets = ["address"];
 
   connect() {
   }
@@ -72,9 +72,12 @@ export default class extends Controller {
 
   _updateUserForTicket(longitude, latitude) {
     const currentUserId = this.userIdForTicketValue
-    console.log(currentUserId)
-    const inputToFill = this.inputTarget
-    console.log(inputToFill)
+    console.log("this is the current user id: " + currentUserId)
+    // The input to fill is the input with the class mapboxgl-ctrl-geocoder--input
+    // since we had to hide the input of the simple_form.
+                // -------- //
+    // const inputToFill = this.inputTarget
+    // console.log(inputToFill)
 
     fetch (`/geolocation/update`, {
       method: "PATCH",
@@ -87,7 +90,8 @@ export default class extends Controller {
       .then(response => response.json())
       .then(data => {
         console.dir(data)
-        inputToFill.value = data.current_position_address
+        const inputWrapper = document.querySelector('.mapboxgl-ctrl-geocoder--input');
+        inputWrapper.value = data.current_position_address
       })
   }
 

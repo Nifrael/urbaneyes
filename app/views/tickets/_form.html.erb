@@ -6,9 +6,16 @@
     <div class="input-and-button"
     data-controller="geolocation"
     data-geolocation-user-id-for-ticket-value="<%= current_user.id %>">
-      <%= f.input :address, label: "Adresse",
-        input_html: { data: {
-            geolocation_target: "input"} } %>
+      <%= f.input :address,
+            label: "Adresse",
+            input_html: { class: "d-none" },
+            wrapper_html: { data: { controller: "address-autocomplete geolocation",
+                                    geolocation_target: "address",
+                                    address_autocomplete_target: "address",
+                                    address_autocomplete_api_key_value: ENV['MAPBOX_API_KEY']
+                                  }
+                          }
+      %>
       <button
         data-action="click->geolocation#updateUserLocationForNewTicket"
         class="btn-input" type="button"><i class="fa-solid fa-location-dot"></i></button>
