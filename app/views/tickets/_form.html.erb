@@ -3,7 +3,23 @@
     <%= f.input :title, label: "Titre" %> <!-- input_html: { id:"title" or class:"whatever" } -> This is the way to add some style to the specific inputs -->
     <%= f.input :description, label: "Description" %>
     <%= f.hidden_field :category, value: (@ticket.persisted? ? @ticket.category : params[:category]) %>
-    <%= f.input :address, label: "Adresse" %>
+    <div class="input-and-button"
+    data-controller="geolocation"
+    data-geolocation-user-id-for-ticket-value="<%= current_user.id %>">
+      <%= f.input :address,
+            label: "Adresse",
+            input_html: { class: "d-none" },
+            wrapper_html: { data: { controller: "address-autocomplete geolocation",
+                                    geolocation_target: "address",
+                                    address_autocomplete_target: "address",
+                                    address_autocomplete_api_key_value: ENV['MAPBOX_API_KEY']
+                                  }
+                          }
+      %>
+      <button
+        data-action="click->geolocation#updateUserLocationForNewTicket"
+        class="btn-input" type="button"><i class="fa-solid fa-location-dot"></i></button>
+      </div>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, f.object.persisted? ? 'Modifier' : 'Créer'  %>
   <% end %>
