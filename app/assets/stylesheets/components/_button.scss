@@ -71,14 +71,14 @@
 }
 
 .floating-button {
-  background-color: var(--color-green);
-  color: var(--color-red);
+  background-color: var( --color-color-btn-index);
+  color: var(--color-background-color-btn-index);
   border-radius: 0px 20px 0px 0px;
-  width: 90px;
-  height: 60px;
+  width: 95px;
+  height: 50px;
   padding: 0;
   border: none;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
   line-height: 50px;
@@ -91,11 +91,12 @@
 }
 
 .floating-button-list {
-  background-color: var(--color-green);
-  color: var(--color-red);
+  background-color: var( --color-color-btn-index);
+  color: var(--color-background-color-btn-index);
   border-radius: 20px 0px 0px 0px;
+  border: 1px solid var(--color-background-color-btn-index);
   width: 90px;
-  height: 60px;
+  height: 50px;
   padding: 0;
   border: none;
   font-size: 24px;
@@ -117,8 +118,8 @@
 }
 
 .floatting-button-home {
-  background-color: var(--color-green);
-  color: var(--color-red);
+  background-color: var( --color-color-btn-index);
+  color: var(--color-background-color-btn-index);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -137,8 +138,8 @@
 }
 
 .floatting-button-location {
-  background-color: var(--color-green);
-  color: var(--color-red);
+  background-color: var( --color-color-btn-index);
+  color: var(--color-background-color-btn-index);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -154,4 +155,20 @@
   right: 10px;
   z-index: 1050;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-input {
+  color: var(--color-lighter-black);
+  margin-top: 12%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  // font-weight: bold;
+  // text-align: center;
+  // line-height: 50px;
+  cursor: pointer;
+  // box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
