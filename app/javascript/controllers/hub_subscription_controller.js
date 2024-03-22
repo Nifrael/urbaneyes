@@ -25,9 +25,10 @@ export default class extends Controller {
     const firstName = data.user_first_name;
     const lastName = data.user_last_name;
     const ticketTitle = data.ticket_title;
+    const icon = `<i class="fa-regular fa-comment"></i>`
 
     const notificationsElement = document.createElement('div');
-    notificationsElement.innerHTML = `<strong>${firstName} ${lastName}</strong> a commenté votre ticket <strong>"${ticketTitle}"</strong>.`;
+    notificationsElement.innerHTML = `<strong>${icon}${firstName} ${lastName}</strong> a commenté votre ticket <strong>"${ticketTitle}"</strong>.`;
 
     this.realtimeNotificationsElement.appendChild(notificationsElement);
   }

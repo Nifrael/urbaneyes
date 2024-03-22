@@ -4,19 +4,23 @@
   background-color: var(--color-button-gray);
   border-radius: 20px;
   padding: 10px;
+  padding-left: 20px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 10px;
+
 }
 
-.notification-name-and-time {
-
+.notification-time {
+  border-bottom: 1px solid $button-gray;
 }
 
 .text-notification {
   p {
     margin-bottom: 0;
+    font-weight: bold;
   }
 }
 
