@@ -6,27 +6,35 @@ export default class extends Controller {
 
   static values = {
     hubId: Number,
-    userId: Number
+    userId: Number,
+    count: Number,
+    isHubPage: Boolean
   }
-  static targets = ['notification']
+  static targets = ['notification', 'count', 'indicator']
 
   connect() {
     const userId = this.userIdValue;
-    const consumer=createConsumer()
+    const consumer = createConsumer()
+    console.log(this.isHubPageValue)
+    console.log("connecté")
 
     consumer.subscriptions.create({ channel: "HubChannel", id: this.hubIdValue }, {
-      received: (data) => this.addDataToCard(data)
+      received: (data) => {
+        if (this.isHubPageValue) {
+          this.addDataToCard(data);
+        } else {
+          this.updateCountUnreadNotifications(data);
+        }
+      }
     })
-
-    this.notificationCard = this.notificationTarget
   }
 
   addDataToCard(data) {
     const firstName = data.user_first_name;
     const lastName = data.user_last_name;
     const ticketTitle = data.ticket_title;
-    const ticketId = data.ticket_id
-    const creationDate = data.created_at
+    const ticketId = data.ticket_id;
+    const creationDate = data.created_at;
 
     const card = `<div class="link-notification-card">
                     <a href="/tickets/${ticketId}">
@@ -44,6 +52,15 @@ export default class extends Controller {
                     </a>
                   </div>`
 
-    this.notificationCard.insertAdjacentHTML("afterbegin", card);
+    this.notificationTarget.insertAdjacentHTML("afterbegin", card);
+  }
+
+  updateCountUnreadNotifications(data) {
+    const unread = data.unread_notification;
+    console.log(unread)
+    console.log('je suis dans la méthode')
+    const newCount = this.countValue + unread;
+    this.countTarget.innerHTML = newCount
+    this.indicatorTarget.classList.remove('d-none')
   }
 }

@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
       }
     end
     @user = current_user
+    @unread_notifications = Notification.where(hub_id: current_user.hub.id, read: false) # A mettre dans controleur application
     @tickets_by_distance = distance_by_kilometers(@tickets)
   end
 
@@ -74,3 +75,11 @@ class TicketsController < ApplicationController
     tickets.sort_by { |ticket| ticket.distance_to([current_user.latitude, current_user.longitude]) }
   end
 end
+
+#
+#
+# User.all.each do |user|
+# @notification = @ticket.notifications.create(
+#   hub_id: user.hub.id,
+#   notifiable_id: @ticket.id
+# )

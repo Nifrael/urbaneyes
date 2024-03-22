@@ -6,13 +6,24 @@
   data-map-latitude-value="<%= @user.latitude %>"
   data-map-longitude-value="<%= @user.longitude %>"></div>
 
-  <button class="floatting-button-hub">
+  <button
+    class="floatting-button-hub"
+    data-controller="hub-subscription"
+    data-hub-subscription-hub-id-value="<%= current_user.hub.id %>"
+    data-hub-subscription-count-value="<%= @unread_notifications.count %>">
     <%= link_to hubs_path do %>
+      <div
+        class="indicator <%= "d-none" if @unread_notifications.count == 0 %>"
+        data-hub-subscription-target="indicator">
+        <div
+          class="notifications-count"
+          data-hub-subscription-target="count">
+            <%= @unread_notifications.count %>
+          </div>
+      </div>
       <i class="fa-regular fa-bell"></i>
     <% end %>
   </button>
-
-
 
 <button
   class="floatting-button-location"
