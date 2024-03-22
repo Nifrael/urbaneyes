@@ -7,9 +7,11 @@
     <h1>Quoi de neuf <%= current_user.first_name %> ?</h1>
   </div>
 
-  <% @notifications.reverse.each do |notification| %>
-    <div class="notifications" data-hub-subscription-target="notification">
-      <%= render partial: "notification", locals: { notification: notification } %>
-    </div>
-  <% end %>
+  <div class="container hub" data-hub-subscription-target="notification">
+    <% @notifications.reverse.each do |notification| %>
+      <div class="notifications">
+        <%= render partial: "notification", locals: { notification: notification } %>
+      </div>
+    <% end %>
+  </div>
 </div>
