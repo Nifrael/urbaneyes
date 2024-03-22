@@ -6,6 +6,14 @@
   data-map-latitude-value="<%= @user.latitude %>"
   data-map-longitude-value="<%= @user.longitude %>"></div>
 
+  <button class="floatting-button-hub">
+    <%= link_to hubs_path do %>
+      <i class="fa-regular fa-bell"></i>
+    <% end %>
+  </button>
+
+
+
 <button
   class="floatting-button-location"
   data-controller="geolocation"
