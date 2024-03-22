@@ -11,38 +11,70 @@
   data-controller="geolocation"
   data-action="click->geolocation#updateUserLocation"
   data-geolocation-user-id-value="<%= @user.id %>">
-    <i class="fa-solid fa-location-dot"></i>
-  </button>
+  <i class="fa-solid fa-location-dot"></i>
+</button>
 
-  <button
-    class="floatting-button-home"
-    data-controller="geolocation"
-    data-action="click->geolocation#backToUserAddress"
-    data-geolocation-user-id-value="<%= @user.id %>"
-    data-geolocation-address-value="<%= @user.address %>"><i class="fa-solid fa-house-user"></i></button>
+<button
+  class="floatting-button-home"
+  data-controller="geolocation"
+  data-action="click->geolocation#backToUserAddress"
+  data-geolocation-user-id-value="<%= @user.id %>"
+  data-geolocation-address-value="<%= @user.address %>"><i class="fa-solid fa-house-user"></i>
+</button>
 
-<button class="floating-button" data-bs-toggle="modal" data-bs-target="#newTicket">
+<button class="floating-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomLeft" aria-controls="offcanvasBottomLeft">
   <span class="icon">+</span>
 </button>
 
-<div class="modal fade" id="newTicket" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-bottom">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="myModalLabel">Créer une nouvelle proposition</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= link_to 'Amélioration', new_ticket_path(category: 'upgrade'), class:"btn" %>
-        <%= link_to 'Dégât', new_ticket_path(category: 'damage'), class:"btn" %>
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottomLeft" aria-labelledby="offcanvasBottomLeftLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Créer une nouvelle proposition</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+    <div class="dec-container mt-5">
+      <div class="dec-content">
+        <%= link_to new_ticket_path(category: 'upgrade'), class:"prop-btn" do %>
+          <div class="dec-card-improvement">
+            <div class="image-container">
+              <%= image_tag("Improvement.png", class:"image") %>
+            </div>
+            <div class="dec-text">
+              <span>Propose an</span> <h2>Improvement</h2>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to new_ticket_path(category: 'damage'), class:"prop-btn" do %>
+          <div class="dec-card-damage">
+            <div class="image-container">
+              <%= image_tag("Damage.png", class:"image") %>
+            </div>
+            <div class="dec-text">
+              <span>Declare a</span><h2> Damage</h2>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<button class="floating-button-list" data-bs-toggle="modal" data-bs-target="#list">
+<button class="floating-button-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomRight" aria-controls="offcanvasBottomRight">
   <span>List</span>
 </button>
+
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottomRight" aria-labelledby="offcanvasBottomRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomRightLabel">Liste des tickets :</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="list-container">
+          <%= render "tickets/list_tickets_by_distance" %>
+      </div>
+  </div>
+</div>
 
 <div class="modal fade" id="list" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -51,9 +83,7 @@
         <h2 class="modal-title fs-5" id="listLabel">Liste des tickets :</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="list-container">
-          <%= render "tickets/list_tickets_by_distance" %>
-      </div>
+
     </div>
   </div>
 </div>
