@@ -7,10 +7,20 @@
       </div>
     <% end %>
 
-  <div class="form-check form-switch" data-controller="dark">
-    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle">
+  <%# <div class="form-check form-switch" data-controller="dark"> %>
+    <%# <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle"> %>
     <%# <label class="form-check-label" for="flexSwitchCheckDefault">Mode sombre</label> %>
+  <%# </div> %>
+
+  <div data-controller="dark">
+    <div class="toggle" title="toggle dark mode">
+      <label>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-action="click->dark#toggleTheme" data-dark-target="themeToggle">
+        <span></span>
+      </label>
+    </div>
   </div>
+
 
     <% if user_signed_in? %>
     <a href="#"
@@ -20,7 +30,7 @@
           class="avatar-bordered"
         <% end %>
       id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag "https://www.lafabriquedeladanse.fr/wp-content/uploads/2018/06/Jiri-1-1-600x800.jpg", class: "avatar", alt: "dropdown menu" %>
+        <%= image_tag "https://api.opera-lyon.com/assets/q70-w1200/0e21d369/albert.jpg", class: "avatar", alt: "dropdown menu" %>
       </a>
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <%= link_to "Tableau de bord", dashboards_path, class: "dropdown-item" %>

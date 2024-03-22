@@ -5,7 +5,10 @@ class GeolocationController < ApplicationController
     user.longitude = params[:longitude]
     user.current_position_address = user.reverse_geocode
     user.save
-    render json: { message: 'Mise à jour des données de localisation effectuée.' }
+    render json: {
+      message: 'Mise à jour des données de localisation effectuée.',
+      current_position_address: user.current_position_address
+    }
   end
 
   private
