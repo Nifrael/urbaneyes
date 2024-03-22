@@ -30,7 +30,7 @@
           class="avatar-bordered"
         <% end %>
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-        <%= image_tag "https://api.opera-lyon.com/assets/q70-w1200/0e21d369/albert.jpg", class: "avatar", alt: "dropdown menu" %>
+        <%= image_tag  current_user.photo, class: "avatar", alt: "dropdown menu" %>
 
       </a>
       <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">

@@ -22,6 +22,7 @@ puts "----------------------------------------------------------------"
 puts "Creating users..."
 puts "----------------------------------------------------------------"
 
+
 ricardo = User.create(
   first_name: "Ricardo",
   last_name: "Canas",
@@ -29,7 +30,7 @@ ricardo = User.create(
   address: "9 Rue des Tuileries, 69009 Lyon",
   email: "ricardo@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJdFqKby4Sv0m0c2SlIU5_9WRENf8w-Gp3kA&usqp=CAU"
 )
 
 albert = User.create(
@@ -39,7 +40,7 @@ albert = User.create(
   address: "9 Rue Anselme, 69004 Lyon",
   email: "albert@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://api.opera-lyon.com/assets/q70-w1200/0e21d369/albert.jpg"
 )
 
 julien = User.create(
@@ -49,7 +50,7 @@ julien = User.create(
   address: "9 Av. de Ménival, 69005 Lyon",
   email: "julien@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://avatars.githubusercontent.com/u/140317895?v=4"
 )
 
 katniss = User.create(
@@ -59,7 +60,7 @@ katniss = User.create(
   address: "9 Rue de la Paix, 69500 Bron",
   email: "katniss@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://www.parismatch.com/lmnr/r/960,640,FFFFFF,forcex,center-middle/img/var/pm/public/styles/paysage/public/media/image/2023/10/11/14/gettyimages-541089365_0.jpg?VersionId=AXRospV5Y6aBiztWoGNio4nGEzDghq5v"
 )
 
 leia = User.create(
@@ -69,7 +70,7 @@ leia = User.create(
   address: "9 Rue de la République, 69001 Lyon",
   email: "leia@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://image.tmdb.org/t/p/original/7ndm8Fmt1xTockVQGpueVE7vjkU.jpg"
 )
 
 dolores = User.create(
@@ -79,7 +80,7 @@ dolores = User.create(
   address: "9 Rue Duquesne, 69006 Lyon",
   email: "dolores@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://media.gettyimages.com/id/1386169377/fr/photo/san-francisco-california-jessica-alba-is-seen-as-rh-celebrates-the-unveiling-of-rh-san.jpg?s=612x612&w=gi&k=20&c=H-pYOQya39mqtIqvtFpbAyHeVUqB24Ui7NVfCW0XqBw="
 )
 
 puts "----------------------------------------------------------------"
