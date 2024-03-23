@@ -26,7 +26,8 @@ class CommentsController < ApplicationController
       ticket_title: @comment.ticket.title,
       ticket_id: @comment.ticket.id,
       created_at: @notification.created_at,
-      unread_notification: 1
+      unread_notification: 1,
+      notifiable_type: @notification.notifiable_type
     )
   end
 

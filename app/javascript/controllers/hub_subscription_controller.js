@@ -36,29 +36,44 @@ export default class extends Controller {
     const ticketId = data.ticket_id;
     const creationDate = data.created_at;
 
-    const card = `<div class="link-notification-card">
-                    <a href="/tickets/${ticketId}">
-                      <div class="notification-card">
-                        <div class="notification-time">
-                          <i><i class="fa-regular fa-comment"></i>${creationDate}</i>
-                        </div>
-                        <div class="text-notification">
-                          <strong>${firstName} ${lastName} a commenté votre ticket :</strong>
-                        </div>
-                        <div class="text-notification">
-                          <p>${ticketTitle}</p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>`
+    const commentCard = `<div class="link-notification-card">
+                            <a href="/tickets/${ticketId}">
+                              <div class="notification-card">
+                                <div class="notification-time">
+                                  <i><i class="fa-regular fa-comment"></i>${creationDate}</i>
+                                </div>
+                                <div class="text-notification">
+                                  <strong>${firstName} ${lastName} a commenté votre ticket :</strong>
+                                </div>
+                                <div class="text-notification">
+                                  <p>${ticketTitle}</p>
+                                </div>
+                              </div>
+                            </a>
+                          </div>`
 
-    this.notificationTarget.insertAdjacentHTML("afterbegin", card);
+    const ticketCard = `<div class="link-notification-card">
+                          <a href="/tickets/${ticketId}">
+                            <div class="notification-card">
+                              <div class="notification-time">
+                                <i><i class="fa-regular fa-comment"></i>${creationDate}</i>
+                              </div>
+                              <div class="text-notification">
+                                <strong>${firstName} ${lastName} a créé un ticket près de vous : ${ticketTitle}</strong>
+                              </div>
+                            </div>
+                          </a>
+                         </div>`
+
+    if (data.notifiable_type === 'Comment') {
+      this.notificationTarget.insertAdjacentHTML("afterbegin", commentCard);
+    } else {
+      this.notificationTarget.insertAdjacentHTML("afterbegin", ticketCard);
+    }
   }
 
   updateCountUnreadNotifications(data) {
     const unread = data.unread_notification;
-    console.log(unread)
-    console.log('je suis dans la méthode')
     const newCount = this.countValue + unread;
     this.countTarget.innerHTML = newCount
     this.indicatorTarget.classList.remove('d-none')

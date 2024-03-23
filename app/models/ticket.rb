@@ -23,6 +23,7 @@ class Ticket < ApplicationRecord
   end
 
   def within_area_of_user?(user)
-    distance_to([user.latitude, user.longitude]).round(2) <= 2
+    results = Geocoder.search(user.address)
+    distance_to(results.first.coordinates).round(2) <= 2
   end
 end

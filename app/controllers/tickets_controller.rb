@@ -91,17 +91,10 @@ class TicketsController < ApplicationController
           ticket_title: @ticket.title,
           ticket_id: @ticket.id,
           created_at: @notification.created_at,
-          unread_notification: 1
+          unread_notification: 1,
+          notifiable_type: @notification.notifiable_type
         )
       end
     end
   end
 end
-
-#
-#
-# User.all.each do |user|
-# @notification = @ticket.notifications.create(
-#   hub_id: user.hub.id,
-#   notifiable_id: @ticket.id
-# )
