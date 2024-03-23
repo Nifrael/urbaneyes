@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require "open-uri"
+
 Vote.destroy_all
 Comment.destroy_all
 Ticket.destroy_all
@@ -20,6 +22,7 @@ puts "----------------------------------------------------------------"
 puts "Creating users..."
 puts "----------------------------------------------------------------"
 
+
 ricardo = User.create(
   first_name: "Ricardo",
   last_name: "Canas",
@@ -27,7 +30,7 @@ ricardo = User.create(
   address: "9 Rue des Tuileries, 69009 Lyon",
   email: "ricardo@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJdFqKby4Sv0m0c2SlIU5_9WRENf8w-Gp3kA&usqp=CAU"
 )
 
 albert = User.create(
@@ -37,7 +40,7 @@ albert = User.create(
   address: "9 Rue Anselme, 69004 Lyon",
   email: "albert@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://api.opera-lyon.com/assets/q70-w1200/0e21d369/albert.jpg"
 )
 
 julien = User.create(
@@ -47,7 +50,7 @@ julien = User.create(
   address: "9 Av. de Ménival, 69005 Lyon",
   email: "julien@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://avatars.githubusercontent.com/u/140317895?v=4"
 )
 
 katniss = User.create(
@@ -57,7 +60,7 @@ katniss = User.create(
   address: "9 Rue de la Paix, 69500 Bron",
   email: "katniss@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://www.parismatch.com/lmnr/r/960,640,FFFFFF,forcex,center-middle/img/var/pm/public/styles/paysage/public/media/image/2023/10/11/14/gettyimages-541089365_0.jpg?VersionId=AXRospV5Y6aBiztWoGNio4nGEzDghq5v"
 )
 
 leia = User.create(
@@ -67,7 +70,7 @@ leia = User.create(
   address: "9 Rue de la République, 69001 Lyon",
   email: "leia@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://image.tmdb.org/t/p/original/7ndm8Fmt1xTockVQGpueVE7vjkU.jpg"
 )
 
 dolores = User.create(
@@ -77,7 +80,7 @@ dolores = User.create(
   address: "9 Rue Duquesne, 69006 Lyon",
   email: "dolores@gmail.com",
   password: "test1234",
-  photo: ""
+  photo: "https://media.gettyimages.com/id/1386169377/fr/photo/san-francisco-california-jessica-alba-is-seen-as-rh-celebrates-the-unveiling-of-rh-san.jpg?s=612x612&w=gi&k=20&c=H-pYOQya39mqtIqvtFpbAyHeVUqB24Ui7NVfCW0XqBw="
 )
 
 puts "----------------------------------------------------------------"
@@ -88,65 +91,83 @@ puts "----------------------------------------------------------------"
 puts "Creating tickets..."
 puts "----------------------------------------------------------------"
 
-ticket1 = Ticket.create(
+file1 = URI.open("https://www.igta5.com/images/gtav-ads-phones.jpg")
+ticket1 = Ticket.new(
   title: "Panneau publicitaire pour GTA VI",
   total_votes: Faker::Number.number(digits: 2),
   description: "GTA VI sort bientôt, un gros panneau publicitaire pour rendre hommage à ce futur chef d'oeuvre doit être érigé ici!",
   address: "Rue de la République, 69002 Lyon",
   category: "upgrade",
   status: "pending",
-  user_id: ricardo.id
+  user_id: ricardo.id,
 )
+ticket1.photo.attach(io: file1, filename:"GTAV.jpg", content_type: "image/jpg")
+ticket1.save
 
-ticket2 = Ticket.create(
+file2 = URI.open("https://storage.canalblog.com/00/02/524549/40270269.jpg")
+ticket2 = Ticket.new(
   title: "Escaliers de l'Opéra détériorés",
   total_votes: Faker::Number.number(digits: 2),
   description: "Les escaliers devant l'Opéra sont en train de se fissurer.",
   address: "1 Pl. de la Comédie, 69001 Lyon",
   category: "damage",
   status: "pending",
-  user_id: albert.id
+  user_id: albert.id,
 )
+ticket2.photo.attach(io: file2, filename:"opera-stairs.jpg", content_type: "image/jpg")
+ticket2.save
 
-ticket3 = Ticket.create(
+file3 = URI.open("https://the18.com/sites/default/files/photo-story-images/fullsizeoutput_102.jpeg")
+ticket3 = Ticket.new(
   title: "Anfield à Lyon",
   total_votes: Faker::Number.number(digits: 2),
   description: "Faire de Lyon la ville d'accueil française des joueurs de Liverpool.",
   address: "353 Av. Jean Jaurès, 69007 Lyon",
   category: "upgrade",
   status: "pending",
-  user_id: julien.id
+  user_id: julien.id,
 )
+ticket3.photo.attach(io: file3, filename:"anfield.jpeg", content_type: "image/jpeg")
+ticket3.save
 
-ticket4 = Ticket.create(
+file4 = URI.open("http://2.bp.blogspot.com/-K3k_UEC8Dik/VAwKVIwXo0I/AAAAAAAAIU8/XFkfS6ydl4w/s1600/caen-after-allied-bombing10201216.jpg")
+ticket4 = Ticket.new(
   title: "Traces de bombardement anciens",
   total_votes: Faker::Number.number(digits: 2),
   description: "Des restes d'un bombardement de la Seconde Guerre Mondiale marquent encore les trottoirs proches de la gare.",
   address: "2 Pl. de Paris, 69009 Lyon",
   category: "damage",
   status: "pending",
-  user_id: katniss.id
+  user_id: katniss.id,
 )
+ticket4.photo.attach(io: file4, filename:"bombings.jpg", content_type: "image/jpg")
+ticket4.save
 
-ticket5 = Ticket.create(
+file5 = URI.open("https://stoneleighfoundation.org/wp-content/uploads/2017/12/jij-5.jpg")
+ticket5 = Ticket.new(
   title: "Centre de correction des jeunes",
   total_votes: Faker::Number.number(digits: 2),
   description: "Nos jeunes sont indisciplinés, il faut un centre pour les remettre dans le droit chemin!",
   address: "Pl. Bellecour, 69002 Lyon",
   category: "upgrade",
   status: "pending",
-  user_id: dolores.id
+  user_id: dolores.id,
 )
+ticket5.photo.attach(io: file5, filename:"education-service.jpg", content_type: "image/jpg")
+ticket5.save
 
-ticket6 = Ticket.create(
+file6 = URI.open("https://i.pinimg.com/originals/2b/13/9a/2b139a935ddbd15d4458638147b2ceee.jpg")
+ticket6 = Ticket.new(
   title: "Réparation des lumières du Musée",
   total_votes: Faker::Number.number(digits: 2),
   description: "Les lumières du Musée sont éteintes, faisant du Musée l'Etoile Noire lorsque le soleil est couché.",
   address: "25 Rue du Premier Film, 69008 Lyon",
   category: "damage",
   status: "pending",
-  user_id: leia.id
+  user_id: leia.id,
 )
+ticket6.photo.attach(io: file6, filename:"lights-museum.jpg", content_type: "image/jpg")
+ticket6.save
 
 puts "----------------------------------------------------------------"
 puts "#{Ticket.count} Tickets created!"
