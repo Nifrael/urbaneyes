@@ -1,0 +1,34 @@
+.offcanvas {
+  height: 100vh;
+  opacity: 0.9;
+  width: 70% !important;
+  z-index: 1100 !important;
+
+}
+
+.offcanvas-header {
+  text-align: center;
+  background-color: var(--color-body)!important;
+  color: var(--color-lighter-black)!important;
+}
+
+.offcanvas-body {
+  background-color:  var(--color-body);
+  ul {
+    list-style: none;
+    line-height: 30px;
+  }
+
+}
+
+// offcanvas for the + button (add ticket)
+#offcanvasBottomLeft {
+  width: 100% !important;
+  height: 80% !important;
+}
+
+// offcanvas for the list button
+#offcanvasBottomRight {
+  width: 100% !important;
+  height: 80% !important;
+}
