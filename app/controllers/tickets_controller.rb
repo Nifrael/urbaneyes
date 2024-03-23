@@ -77,15 +77,13 @@ class TicketsController < ApplicationController
     tickets.sort_by { |ticket| ticket.distance_to([current_user.latitude, current_user.longitude]) }
   end
 
-  def create__ticket_notification
+  def create_ticket_notification
     User.all.each do |user|
-      raise
       if @ticket.within_area_of_user?(user)
         @notification = @ticket.notifications.create(
           hub_id: user.hub.id,
           notifiable_id: @ticket.id
         )
-        raise
         HubChannel.broadcast_to(
           @notification.hub,
           user_first_name: @ticket.user.first_name,
