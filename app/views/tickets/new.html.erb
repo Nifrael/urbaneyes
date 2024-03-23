@@ -6,89 +6,13 @@
         <div class="logo-col-auto logo-relative-container">
           <div class="logo-content-wrapper">
           <h1>UrbanEyes</h1>
-          <p>Be the eyes of your city</p>
+          <p>Devenez les yeux de votre Ville</p>
           <%= image_tag('binocular-transparent.png') %>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="btn-container">
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#tickets">Mes propositions</button>
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#upgrade">Améliorations</button>
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#damage">Dégâts</button>
-    </div>
-
-    <div class="modal fade" id="tickets" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title fs-5" id="ticketsLabel">Mes propositions</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="profile-container">
-            <% @tickets.each do |ticket| %>
-              <%= link_to ticket_path(ticket), class: "container-content" do %>
-                <div class="content-text">
-                  <p><%= ticket.category.capitalize %></p>
-                  <p><%= ticket.description %></p>
-                  <p><%= ticket.address %></p>
-                  <p><%= ticket.total_votes %></p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="upgrade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title fs-5" id="ticketsLabel">Améliorations</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="profile-container">
-            <% @tickets.each do |ticket| %>
-              <% if ticket.category == "upgrade" %>
-                <%= link_to ticket_path(ticket), class: "container-content" do %>
-                  <div class="content-text">
-                    <p><%= ticket.description %></p>
-                    <p><%= ticket.address %></p>
-                    <p><%= ticket.total_votes %></p>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="damage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title fs-5" id="ticketsLabel">Dégâts</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="profile-container">
-            <% @tickets.each do |ticket| %>
-              <% if ticket.category == "damage" %>
-                <%= link_to ticket_path(ticket), class: "container-content" do %>
-                  <div class="content-text">
-                    <p><%= ticket.description %></p>
-                    <p><%= ticket.address %></p>
-                    <p><%= ticket.total_votes %></p>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="form-container">
       <div class="row">
@@ -97,7 +21,7 @@
                 <%= image_tag("Improvement.png", class:"image") %>
             </div>
             <div class="form-text-container">
-              <h2>👋 Hello <%= current_user.first_name %>!</h2>
+              <h2>👋 Bonjour <%= current_user.first_name %>!</h2>
               <h3>Proposez votre amélioration!</h3>
             </div>
           <% else %>
@@ -105,8 +29,8 @@
               <%= image_tag("Damage.png", class:"image") %>
             </div>
             <div class="form-text-container">
-              <h2>👋 Hello <%= current_user.first_name %>!</h2>
-              <h3>Déclarez un dommage!</h3>
+              <h2>👋 Bonjour <%= current_user.first_name %>!</h2>
+              <h3>Déclarez un dégât!</h3>
             </div>
           <% end %>
       </div>

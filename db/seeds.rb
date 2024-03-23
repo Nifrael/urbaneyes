@@ -80,6 +80,16 @@ dolores = User.create(
   photo: ""
 )
 
+admin = User.create(
+  first_name: "Mairie",
+  last_name: "Lyon",
+  role: "admin",
+  address: "2 Pl. Sathonay, 69001 Lyon, France",
+  email: "admin@urbaneyes.me",
+  password: "test1234",
+  photo: ""
+)
+
 puts "----------------------------------------------------------------"
 puts "#{User.count} Users created"
 puts "----------------------------------------------------------------"

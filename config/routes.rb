@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   patch '/address_geolocation/:id', to: 'address_geolocation#update'
 
   resources :dashboards, only: [:index]
+
+  patch 'dashboards/change_role/:id', to: 'dashboards#change_role', as: 'change_role_dashboards'
 end

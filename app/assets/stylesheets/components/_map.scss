@@ -16,6 +16,15 @@
 
 .map {
   padding: 10px;
+  #green {
+    color: var(--color-green);
+  }
+  #red {
+    color: var(--color-red);
+  }
+  a {
+    text-decoration: none;
+  }
 }
 
 .mapboxgl-popup-close-button{

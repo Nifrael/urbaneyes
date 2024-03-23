@@ -1,7 +1,7 @@
 <div class="container">
   <div class="ticket-title">
     <h2><%= @ticket.category == "upgrade" ? "Proposition d'amélioration" : "Déclaration de dégât" %>
-        <% if current_user.id == @ticket.user_id %>
+        <% if current_user.admin? || current_user.id == @ticket.user_id %>
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editTicketModal">
             <i class="fa-regular fa-pen-to-square"></i>
           </button>
