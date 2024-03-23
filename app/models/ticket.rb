@@ -21,4 +21,8 @@ class Ticket < ApplicationRecord
   def total_down_votes
     votes.where(up_vote: false).count
   end
+
+  def within_area_of_user?(user)
+    distance_to([user.latitude, user.longitude]).round(2) <= 2
+  end
 end
