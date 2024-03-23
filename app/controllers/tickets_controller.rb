@@ -79,7 +79,7 @@ class TicketsController < ApplicationController
 
   def create_ticket_notification
     User.all.each do |user|
-      if @ticket.within_area_of_user?(user)
+      if @ticket.within_area_of_user?(user) && user.id != current_user.id
         @notification = @ticket.notifications.create(
           hub_id: user.hub.id,
           notifiable_id: @ticket.id

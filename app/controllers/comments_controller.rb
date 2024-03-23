@@ -15,20 +15,22 @@ class CommentsController < ApplicationController
   private
 
   def create_notification
-    @notification = @comment.notifications.create(
-      hub_id: @comment.ticket.user.hub.id,
-      notifiable_id: @comment.id
-    )
-    HubChannel.broadcast_to(
-      @notification.hub,
-      user_first_name: @comment.user.first_name,
-      user_last_name: @comment.user.last_name,
-      ticket_title: @comment.ticket.title,
-      ticket_id: @comment.ticket.id,
-      created_at: @notification.created_at,
-      unread_notification: 1,
-      notifiable_type: @notification.notifiable_type
-    )
+    if @comment.ticket.user_id != current_user.id
+      @notification = @comment.notifications.create(
+        hub_id: @comment.ticket.user.hub.id,
+        notifiable_id: @comment.id
+      )
+      HubChannel.broadcast_to(
+        @notification.hub,
+        user_first_name: @comment.user.first_name,
+        user_last_name: @comment.user.last_name,
+        ticket_title: @comment.ticket.title,
+        ticket_id: @comment.ticket.id,
+        created_at: @notification.created_at,
+        unread_notification: 1,
+        notifiable_type: @notification.notifiable_type
+      )
+    end
   end
 
   def comment_params
