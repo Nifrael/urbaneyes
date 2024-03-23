@@ -21,8 +21,33 @@
     </div>
   </div>
 
+  <% if user_signed_in? %>
+    <button
+    class="floatting-button-hub"
+    data-controller="hub-subscription"
+    data-hub-subscription-hub-id-value="<%= current_user.hub.id %>"
+    data-hub-subscription-count-value="<%= current_user.hub.notifications.where(read: false).count %>">
+    <%= link_to hubs_path do %>
+      <div
+        class="indicator <%= "d-none" if current_user.hub.notifications.where(read: false).count == 0 %>"
+        data-hub-subscription-target="indicator">
+        <div
+          class="notifications-count"
+          data-hub-subscription-target="count">
+            <%= current_user.hub.notifications.where(read: false).count %>
+          </div>
+      </div>
+      <div class="bell">
+        <div class="anchor material-icons layer-1"
+             data-hub-subscription-target="bell" >
+          <i class="fa-regular fa-bell"></i>
+        </div>
+      </div>
+    <% end %>
+  </button>
 
-    <% if user_signed_in? %>
+
+
     <a href="#"
         <% if current_page?(tickets_path) == false %>
           class="avatar"

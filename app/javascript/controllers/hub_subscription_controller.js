@@ -1,6 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
+let unread = 0;
+
 // Connects to data-controller="hub-subscription"
 export default class extends Controller {
 
@@ -10,7 +12,7 @@ export default class extends Controller {
     count: Number,
     isHubPage: Boolean
   }
-  static targets = ['notification', 'count', 'indicator']
+  static targets = ['notification', 'count', 'indicator', 'bell']
 
   connect() {
     const userId = this.userIdValue;
@@ -27,6 +29,7 @@ export default class extends Controller {
         }
       }
     })
+
   }
 
   addDataToCard(data) {
@@ -73,9 +76,15 @@ export default class extends Controller {
   }
 
   updateCountUnreadNotifications(data) {
-    const unread = data.unread_notification;
-    const newCount = this.countValue + unread;
+    console.log(unread)
+    unread += data.unread_notification;
+    console.log(unread)
+    let newCount = this.countValue + unread;
     this.countTarget.innerHTML = newCount
     this.indicatorTarget.classList.remove('d-none')
+    this.bellTarget.classList.add('layer-active')
+    setTimeout(() => {
+      this.bellTarget.classList.remove('layer-active');
+    }, 11000);
   }
 }

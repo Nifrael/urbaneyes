@@ -29,3 +29,37 @@
     text-decoration: none;
   }
 }
+
+.bell {
+  .anchor {
+    transform-origin:center top;
+    display:inline-block;
+    margin:0;
+    padding:0;
+  }
+  .layer-1 {
+    color: var(--color-background-color-btn-index);
+    z-index:9;
+    opacity: 100;
+
+  }
+  .layer-active {
+    animation: animation-layer-1 4s 1.5;
+  }
+}
+
+@keyframes animation-layer-1 {
+  0% { transform: rotate(0deg);opacity:1; }
+  8.0% { transform: rotate(0deg);opacity:1; }
+  12.0% { transform: rotate(42deg);opacity:0.5; }
+  16.0% { transform: rotate(-35deg);opacity:.5; }
+  20.0% { transform: rotate(0deg);opacity:0.8; }
+  23.0% { transform: rotate(28deg);opacity:.7; }
+  26.0% { transform: rotate(-20deg);opacity:.7; }
+  29.0% { transform: rotate(0deg);opacity:0.8; }
+  31.0% { transform: rotate(16deg);opacity:.5; }
+  33.0% { transform: rotate(-12deg);opacity:0.5; }
+  35.0% { transform: rotate(0deg);opacity:0.8; }
+  37.0% { transform: rotate(-6deg);opacity:0.9; }
+  39.0% { transform: rotate(0deg);opacity:1; }
+}
