@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
       }
     end
     @user = current_user
+    @unread_notifications = Notification.where(hub_id: current_user.hub.id, read: false) # A mettre dans controleur application
     @tickets_by_distance = distance_by_kilometers(@tickets)
   end
 
@@ -37,10 +38,12 @@ class TicketsController < ApplicationController
   end
 
   def create
+    @tickets = Ticket.all
     @ticket = Ticket.create(ticket_params)
     @ticket.user_id = current_user.id
     @ticket.status = 'pending'
     if @ticket.save
+      create_ticket_notification
       redirect_to ticket_path(@ticket)
     else
       render :new, status: :unprocessable_entity
@@ -72,5 +75,26 @@ class TicketsController < ApplicationController
 
   def distance_by_kilometers(tickets)
     tickets.sort_by { |ticket| ticket.distance_to([current_user.latitude, current_user.longitude]) }
+  end
+
+  def create_ticket_notification
+    User.all.each do |user|
+      if @ticket.within_area_of_user?(user) && user.id != current_user.id
+        @notification = @ticket.notifications.create(
+          hub_id: user.hub.id,
+          notifiable_id: @ticket.id
+        )
+        HubChannel.broadcast_to(
+          @notification.hub,
+          user_first_name: @ticket.user.first_name,
+          user_last_name: @ticket.user.last_name,
+          ticket_title: @ticket.title,
+          ticket_id: @ticket.id,
+          created_at: @notification.created_at,
+          unread_notification: 1,
+          notifiable_type: @notification.notifiable_type
+        )
+      end
+    end
   end
 end

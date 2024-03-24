@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :tickets
   has_many :votes
   has_many :comments
+  has_one :hub
 
   geocoded_by :current_position_address
   reverse_geocoded_by :latitude, :longitude, address: :current_position_address
