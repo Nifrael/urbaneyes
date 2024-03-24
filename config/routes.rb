@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   resources :tickets do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
     patch 'change_status', on: :member
   end
   resources :votes, only: [:create]

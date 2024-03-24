@@ -65,7 +65,7 @@ class TicketsController < ApplicationController
 
   def change_status
     @ticket = Ticket.find(params[:id])
-    @ticket.update(status: @ticket.status == "pending" ? "completed" : "pending")
+    @ticket.update(status: @ticket.status == "pending" ? "ended" : "pending")
     redirect_to @ticket, notice: "Le statut du ticket a été mis à jour avec succès."
   end
 
