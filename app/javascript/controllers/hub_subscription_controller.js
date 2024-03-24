@@ -17,8 +17,6 @@ export default class extends Controller {
   connect() {
     const userId = this.userIdValue;
     const consumer = createConsumer()
-    console.log(this.isHubPageValue)
-    console.log("connecté")
 
     consumer.subscriptions.create({ channel: "HubChannel", id: this.hubIdValue }, {
       received: (data) => {
@@ -76,10 +74,8 @@ export default class extends Controller {
   }
 
   updateCountUnreadNotifications(data) {
-    console.log(unread)
     unread += data.unread_notification;
-    console.log(unread)
-    let newCount = this.countValue + unread;
+    const newCount = this.countValue + unread;
     this.countTarget.innerHTML = newCount
     this.indicatorTarget.classList.remove('d-none')
     this.bellTarget.classList.add('layer-active')
