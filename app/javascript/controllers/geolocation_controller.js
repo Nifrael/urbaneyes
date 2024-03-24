@@ -128,6 +128,6 @@ export default class extends Controller {
   _refreshPage() {
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 1500);
   }
 }
