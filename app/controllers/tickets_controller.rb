@@ -86,13 +86,13 @@ class TicketsController < ApplicationController
         )
         HubChannel.broadcast_to(
           @notification.hub,
-          user_first_name: @ticket.user.first_name,
-          user_last_name: @ticket.user.last_name,
-          ticket_title: @ticket.title,
-          ticket_id: @ticket.id,
-          created_at: @notification.created_at,
-          unread_notification: 1,
-          notifiable_type: @notification.notifiable_type
+          # user_first_name: @ticket.user.first_name,
+          # user_last_name: @ticket.user.last_name,
+          # ticket_title: @ticket.title,
+          # ticket_id: @ticket.id,
+          # created_at: @notification.created_at,
+          unread_notification: 1
+          # notifiable_type: @notification.notifiable_type
         )
       end
     end

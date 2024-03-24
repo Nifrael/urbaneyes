@@ -22,13 +22,13 @@ class CommentsController < ApplicationController
       )
       HubChannel.broadcast_to(
         @notification.hub,
-        user_first_name: @comment.user.first_name,
-        user_last_name: @comment.user.last_name,
-        ticket_title: @comment.ticket.title,
-        ticket_id: @comment.ticket.id,
-        created_at: @notification.created_at,
-        unread_notification: 1,
-        notifiable_type: @notification.notifiable_type
+        # user_first_name: @comment.user.first_name,
+        # user_last_name: @comment.user.last_name,
+        # ticket_title: @comment.ticket.title,
+        # ticket_id: @comment.ticket.id,
+        # created_at: @notification.created_at,
+        unread_notification: 1
+        # notifiable_type: @notification.notifiable_type
       )
     end
   end
