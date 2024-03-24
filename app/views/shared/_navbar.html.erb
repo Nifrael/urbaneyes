@@ -21,23 +21,63 @@
     </div>
   </div>
 
+  <% if user_signed_in? %>
+    <button
+    class="floatting-button-hub"
+    data-controller="hub-subscription"
+    data-hub-subscription-hub-id-value="<%= current_user.hub.id %>"
+    data-hub-subscription-count-value="<%= current_user.hub.notifications.where(read: false).count %>">
+    <%= link_to hubs_path do %>
+      <div
+        class="indicator <%= "d-none" if current_user.hub.notifications.where(read: false).count == 0 %>"
+        data-hub-subscription-target="indicator">
+        <div
+          class="notifications-count"
+          data-hub-subscription-target="count">
+            <%= current_user.hub.notifications.where(read: false).count %>
+          </div>
+      </div>
+      <div class="bell">
+        <div class="anchor material-icons layer-1"
+             data-hub-subscription-target="bell" >
+          <i class="fa-regular fa-bell"></i>
+        </div>
+      </div>
+    <% end %>
+  </button>
 
-    <% if user_signed_in? %>
+
+
     <a href="#"
         <% if current_page?(tickets_path) == false %>
           class="avatar"
         <% else %>
           class="avatar-bordered"
         <% end %>
-      id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag "https://api.opera-lyon.com/assets/q70-w1200/0e21d369/albert.jpg", class: "avatar", alt: "dropdown menu" %>
-      </a>
-      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <%= link_to "Tableau de bord", dashboards_path, class: "dropdown-item" %>
-        <%= link_to "Another action", "#", class: "dropdown-item" %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-      </div>
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        <%= image_tag  current_user.photo, class: "avatar", alt: "dropdown menu" %>
 
+      </a>
+      <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+          <h4>Menu</h4>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul>
+            <li><%= link_to "Tableau de bord", dashboards_path, class: "link d-block" %></li>
+            <li><%= link_to "Modifier mon profil", edit_user_registration_path, class: "link d-block" %></li>
+            <li></li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li><%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class:"link" %></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
     <% else %>
         <%= link_to "Connexion", new_user_session_path, class: "nav-link link" %>
     <% end %>

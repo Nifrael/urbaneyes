@@ -1,0 +1,28 @@
+<div class="link-notification-card">
+  <% if notification.notifiable_type == "Comment" %>
+    <%= link_to ticket_path(notification.comment.ticket.id) do %>
+      <div class="notification-card">
+        <div class="notification-time">
+          <i><i class="fa-regular fa-comment"></i> <%= notification.created_at.strftime("%A %d %B %Y à %H:%M") %></i>
+        </div>
+        <div class="text-notification">
+          <strong> <%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %> a commenté votre ticket :</strong>
+        </div>
+        <div class="text-notification">
+          <p><%= notification.comment.ticket.title %></p>
+        </div>
+      </div>
+    <% end %>
+    <% elsif notification.notifiable_type == "Ticket" %>
+      <%= link_to ticket_path(notification.notifiable_id) do %>
+        <div class="notification-card">
+          <div class="notification-time">
+            <i><i class="fa-regular fa-comment"></i> <%= notification.created_at.strftime("%A %d %B %Y à %H:%M") %></i>
+          </div>
+          <div class="text-notification">
+            <strong> <%= notification.ticket.user.first_name %> <%= notification.ticket.user.last_name %> a créé un ticket près de vous : <%= notification.ticket.title %></strong>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+</div>

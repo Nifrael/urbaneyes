@@ -1,0 +1,18 @@
+<div class="container hub mt-4"
+  data-controller="hub-subscription"
+  data-hub-subscription-hub-id-value="<%= @hub.id %>"
+  data-hub-subscription-user-id-value="<%= current_user.id %>"
+  data-hub-subscription-is-hub-page-value="true">
+
+  <div class="text-container-hub mb-4">
+    <h1>Quoi de neuf <%= current_user.first_name %> ?</h1>
+  </div>
+
+  <div class="container hub" data-hub-subscription-target="notification">
+    <% @notifications.reverse.each do |notification| %>
+      <div class="notifications">
+        <%= render partial: "notification", locals: { notification: notification } %>
+      </div>
+    <% end %>
+  </div>
+</div>
