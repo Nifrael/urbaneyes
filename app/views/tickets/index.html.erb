@@ -1,3 +1,10 @@
+  <div id="loading-screen"
+        data-controller="loading-screen"
+        data-loading-screen-target='screen'>
+    <div class="loader"></div>
+  </div>
+
+
 <div
   style="width: 100%; height:100vh"
   data-controller="map"
@@ -5,6 +12,8 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
   data-map-latitude-value="<%= @user.latitude %>"
   data-map-longitude-value="<%= @user.longitude %>"></div>
+
+
 
 <button
   class="floatting-button-location"
