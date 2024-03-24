@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :tickets do
     resources :comments, only: [:create]
+    patch 'change_status', on: :member
   end
   resources :votes, only: [:create]
 

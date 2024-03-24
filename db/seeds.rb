@@ -94,7 +94,7 @@ admin = User.create(
   address: "2 Pl. Sathonay, 69001 Lyon, France",
   email: "admin@urbaneyes.me",
   password: "test1234",
-  photo: ""
+  photo: "https://lh3.googleusercontent.com/p/AF1QipPF1ON8b1znWZLKcUwJh2oYrqoJsfiSTUfRYb8C=s680-w680-h510"
 )
 
 User.all.each do |user|

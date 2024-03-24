@@ -34,10 +34,32 @@
     <h3><%= @ticket.title %></h3>
   </div>
   <div class="infos-container">
-    <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %></p>
+    <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %>
+       <% if current_user.admin? %>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editStatusModal">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+        <% end %>
+      <div class="modal fade" id="editStatusModal" tabindex="-1" aria-labelledby="editStatusModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editStatusModalLabel">Modifier le Statut</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
     <p>Lieu : <%= @ticket.address %></p>
     <p>Description : <%= @ticket.description %></p>
     <p>Auteur du ticket : <%= @ticket.user.first_name %> <%= @ticket.user.last_name %></p>
+    <% if current_user.admin? %>
+      <%= button_to "Changer le statut du ticket", change_status_ticket_path(@ticket), method: :patch %>
+    <% end %>
   </div>
   <div class="votes-container">
     <%= form_with(url: votes_path, method: :post, local: true) do |form| %>
