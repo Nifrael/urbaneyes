@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
-let unread = 0;
 
 // Connects to data-controller="hub-subscription"
 export default class extends Controller {
@@ -34,11 +33,37 @@ export default class extends Controller {
     //   console.log(this.connected)
     // }
 
-    if (!this.connected) {
-      this.connectController();
-      this.connected = true;
+
+    if (!this.element.dataset.notification) {
+      this.element.dataset.notification = true
+      console.log('je suis connecté')
+      this.unread = 0
+      const consumer = createConsumer();
+      this.subscription = consumer.subscriptions.create({ channel: "HubChannel", id: this.hubIdValue }, {
+        received: (data) => {
+          this.updateCountUnreadNotifications(data);
+        }
+      });
     }
-    document.addEventListener('turbolinks:before-cache', this.disconnectController.bind(this));
+    // if (!this.connected) {
+    //   this.connectController();
+    //   this.connected = true;
+    // }
+    // document.addEventListener('turbolinks:before-cache', this.disconnectController.bind(this));
+  }
+
+  updateCountUnreadNotifications(data) {
+    const count = this.countTarget
+    this.unread += data.unread_notification;
+    console.log(this.unread)
+    const newCount = this.countValue + this.unread;
+    console.log(newCount)
+    count.innerHTML = newCount
+    this.indicatorTarget.classList.remove('d-none')
+    this.bellTarget.classList.add('layer-active')
+    setTimeout(() => {
+      this.bellTarget.classList.remove('layer-active');
+    }, 11000);
   }
 
   // addDataToCard(data) {
@@ -84,41 +109,34 @@ export default class extends Controller {
   //   }
   // }
 
-  updateCountUnreadNotifications(data) {
-    const count = this.countTarget
-    unread += data.unread_notification;
-    console.log(unread)
-    const newCount = this.countValue + unread;
-    console.log(newCount)
-    count.innerHTML = newCount
-    this.indicatorTarget.classList.remove('d-none')
-    this.bellTarget.classList.add('layer-active')
-    setTimeout(() => {
-      this.bellTarget.classList.remove('layer-active');
-    }, 11000);
-  }
+
 
   disconnect() {
-    this.disconnectController();
-    this.connected = false;
-    document.removeEventListener('turbolinks:before-cache', this.disconnectController.bind(this));
+      if (this.subscription) {
+      this.element.dataset.notification = false
+      this.subscription.unsubscribe();
+      console.log('je me deconnecte')
+      // this.disconnectController();
+      // this.connected = false;
+      // document.removeEventListener('turbolinks:before-cache', this.disconnectController.bind(this));
+    }
   }
 
   connectController() {
-    console.log('je suis connecté')
-    unread = 0
-    const consumer = createConsumer();
-    this.subscription = consumer.subscriptions.create({ channel: "HubChannel", id: this.hubIdValue }, {
-      received: (data) => {
-        this.updateCountUnreadNotifications(data);
-      }
-    });
+    // console.log('je suis connecté')
+    // unread = 0
+    // const consumer = createConsumer();
+    // this.subscription = consumer.subscriptions.create({ channel: "HubChannel", id: this.hubIdValue }, {
+    //   received: (data) => {
+    //     this.updateCountUnreadNotifications(data);
+    //   }
+    // });
   }
 
-  disconnectController() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-      console.log('je me déconnecte')
-    }
-  }
+  // disconnectController() {
+  //   if (this.subscription) {
+  //     this.subscription.unsubscribe();
+  //     console.log('je me déconnecte')
+  //   }
+  // }
 }
