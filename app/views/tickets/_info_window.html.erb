@@ -1,5 +1,13 @@
 <div class="map">
-    <h2><%= ticket.category.capitalize %></h2>
-  <p><%= ticket.address %></p>
-  <%= link_to "Check this ticket", ticket_path(ticket), class:"ticket-btn" %>
+    <h2><%= link_to ticket.title, ticket_path(ticket), class: "ticket-btn" %></h2>
+    <div class="ticket-card-votes">
+      <span id="green">
+        <i class="fa-regular fa-thumbs-up"></i>
+        <%= ticket.total_up_votes %>
+      </span>
+      <span id="red">
+        <i class="fa-regular fa-thumbs-down"></i>
+        <%= ticket.total_down_votes %>
+      </span>
+    </div>
 </div>

@@ -1,10 +1,15 @@
 <div class="container">
   <div class="ticket-title">
     <h2><%= @ticket.category == "upgrade" ? "Proposition d'amélioration" : "Déclaration de dégât" %>
-        <% if current_user.id == @ticket.user_id %>
+        <% if current_user.admin? || current_user.id == @ticket.user_id %>
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editTicketModal">
             <i class="fa-regular fa-pen-to-square"></i>
           </button>
+         <%= link_to ticket_path(@ticket), data: {turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer ce ticket?' } do %>
+            <button type="button" class="btn">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          <% end %>
         <% end %>
       <div class="modal fade" id="editTicketModal" tabindex="-1" aria-labelledby="editTicketModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -34,7 +39,29 @@
     <h3><%= @ticket.title %></h3>
   </div>
   <div class="infos-container">
-    <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %></p>
+    <p>Avancement : <%= @ticket.status == "pending" ? "En cours" : "Terminé" %>
+       <% if current_user.admin? %>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editStatusModal">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+        <% end %>
+      <div class="modal fade" id="editStatusModal" tabindex="-1" aria-labelledby="editStatusModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editStatusModalLabel">Modifier le Statut</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= form_tag change_status_ticket_path(@ticket), method: :patch, remote: true, class: 'change-status-form' do %>
+                <%= select_tag 'new_status', options_for_select({ 'En cours' => 'pending', 'Terminé' => 'completed' }, @ticket.status), class: 'button mr-2' %>
+                <%= button_tag "Valider", type: 'submit', class: 'ticket-btn' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
     <p>Lieu : <%= @ticket.address %></p>
     <p>Description : <%= @ticket.description %></p>
     <p>Auteur du ticket : <%= @ticket.user.first_name %> <%= @ticket.user.last_name %></p>
@@ -76,6 +103,11 @@
   </div>
   <div class="comments-list">
     <% @comments.each do |comment| %>
+      <%= link_to ticket_comment_path(comment.ticket_id, comment.id), data: {turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer ce ticket?' } do %>
+            <button type="button" class="btn">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          <% end %>
       <span><i class="fa-regular fa-comment"></i> <%= comment.user.first_name %> <%= comment.user.last_name %> a commenté :</span>
       <p><%= comment.content %></p>
     <% end %>

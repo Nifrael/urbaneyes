@@ -87,6 +87,16 @@ dolores = User.create(
   photo: "https://media.gettyimages.com/id/1386169377/fr/photo/san-francisco-california-jessica-alba-is-seen-as-rh-celebrates-the-unveiling-of-rh-san.jpg?s=612x612&w=gi&k=20&c=H-pYOQya39mqtIqvtFpbAyHeVUqB24Ui7NVfCW0XqBw="
 )
 
+admin = User.create(
+  first_name: "Mairie",
+  last_name: "Lyon",
+  role: "admin",
+  address: "2 Pl. Sathonay, 69001 Lyon, France",
+  email: "admin@urbaneyes.me",
+  password: "test1234",
+  photo: "https://lh3.googleusercontent.com/p/AF1QipPF1ON8b1znWZLKcUwJh2oYrqoJsfiSTUfRYb8C=s680-w680-h510"
+)
+
 User.all.each do |user|
   user.hub = Hub.create(user: user)
 end
