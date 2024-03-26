@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_17_094303) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_22_105601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_17_094303) do
     t.datetime "updated_at", null: false
     t.index ["ticket_id"], name: "index_comments_on_ticket_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "hubs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_hubs_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "hub_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "notifiable_id"
+    t.string "notifiable_type"
+    t.string "notifiable_content"
+    t.boolean "read", default: false
+    t.index ["hub_id"], name: "index_notifications_on_hub_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -102,6 +120,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_17_094303) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "tickets"
   add_foreign_key "comments", "users"
+  add_foreign_key "hubs", "users"
+  add_foreign_key "notifications", "hubs"
   add_foreign_key "tickets", "users"
   add_foreign_key "votes", "tickets"
   add_foreign_key "votes", "users"

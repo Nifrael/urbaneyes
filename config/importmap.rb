@@ -9,6 +9,7 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "mapbox-gl" # @3.1.2
 pin "process" # @2.0.1
+pin "@rails/actioncable", to: "@rails--actioncable.js" # @7.1.3
 pin "@mapbox/mapbox-gl-geocoder", to: "@mapbox--mapbox-gl-geocoder.js" # @5.0.0
 pin "#lib/client.js", to: "#lib--client.js.js" # @0.13.7
 pin "@mapbox/fusspot", to: "@mapbox--fusspot.js" # @0.4.0

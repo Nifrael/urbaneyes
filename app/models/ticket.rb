@@ -2,6 +2,7 @@ class Ticket < ApplicationRecord
   belongs_to :user
   has_many :votes
   has_many :comments
+  has_many :notifications, as: :notifiable
 
   enum status: { pending: 0, ended: 1 }, _prefix: :status
   enum category: { upgrade: 0, damage: 1 }
@@ -19,5 +20,10 @@ class Ticket < ApplicationRecord
 
   def total_down_votes
     votes.where(up_vote: false).count
+  end
+
+  def within_area_of_user?(user)
+    results = Geocoder.search(user.address)
+    distance_to(results.first.coordinates).round(2) <= 2
   end
 end

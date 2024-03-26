@@ -76,8 +76,8 @@ export default class extends Controller {
     // The input to fill is the input with the class mapboxgl-ctrl-geocoder--input
     // since we had to hide the input of the simple_form.
                 // -------- //
-    // const inputToFill = this.inputTarget
-    // console.log(inputToFill)
+    const inputToFill = document.querySelector('#ticket_address');
+    console.log(inputToFill)
 
     fetch (`/geolocation/update`, {
       method: "PATCH",
@@ -92,6 +92,7 @@ export default class extends Controller {
         console.dir(data)
         const inputWrapper = document.querySelector('.mapboxgl-ctrl-geocoder--input');
         inputWrapper.value = data.current_position_address
+        inputToFill.value = data.current_position_address
       })
   }
 

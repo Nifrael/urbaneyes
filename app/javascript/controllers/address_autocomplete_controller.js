@@ -16,8 +16,7 @@ export default class extends Controller {
     })
     this.geocoder.addTo(this.element)
 
-    console.log(this.geocoder._inputEl)
-    this.geocoder._inputEl.setAttribute('data-geolocation-target', 'input');
+    this.geocoder._inputEl.setAttribute('data-geolocation-target', 'address');
     this.geocoder._inputEl.setAttribute('data-address-autocomplete-target', 'address');
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
@@ -25,10 +24,13 @@ export default class extends Controller {
 
   #setInputValue(event) {
     this.addressTarget.value = event.result["place_name"]
+
+    document.querySelector('#ticket_address').value = event.result["place_name"]
   }
 
   #clearInputValue() {
     this.addressTarget.value = ""
+    document.querySelector('#ticket_address').value = ""
   }
 
 }

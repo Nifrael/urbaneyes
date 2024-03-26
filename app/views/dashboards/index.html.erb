@@ -6,7 +6,7 @@
         <div class="logo-col-auto logo-relative-container">
           <div class="logo-content-wrapper">
           <h1>UrbanEyes</h1>
-          <p>Be the eyes of your city</p>
+          <p>Devenez les yeux de votre Ville</p>
           <div id="theme-image">
             <%= image_tag('binocular-transparent.png', class: 'light-theme-image') %>
             <%= image_tag('LogoWhiteTransparent.png', class: 'dark-theme-image') %>
@@ -19,11 +19,11 @@
     <div class="profile-container">
       <div class="container-content">
         <div class="content-text">
-          <h2>Bonjour <%= current_user.email %></h2>
-          <p>How would you like to enhance your city's public spaces today?</p>
+          <h2>Bonjour <%= current_user.first_name %></h2>
+          <p>Comment voulez-vous aider votre ville aujourd'hui?</p>
         </div>
         <div class="content-avatar">
-          <img src="https://www.lafabriquedeladanse.fr/wp-content/uploads/2018/06/Jiri-1-1-600x800.jpg" alt="Avatar">
+           <%= image_tag  current_user.photo, class: "avatar" %>
         </div>
       </div>
     </div>
@@ -41,8 +41,10 @@
             <h2 class="modal-title fs-5" id="ticketsLabel">Mes propositions</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="list-container">
-            <%= render "tickets/list_tickets" %>
+          <div class="modal-body">
+            <div class="list-container">
+              <%= render "tickets/list_tickets" %>
+            </div>
           </div>
         </div>
       </div>
@@ -55,8 +57,10 @@
             <h2 class="modal-title fs-5" id="ticketsLabel">Améliorations</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="list-container">
-            <%= render "tickets/upgrade_tickets" %>
+          <div class="modal-body">
+            <div class="list-container">
+              <%= render "tickets/upgrade_tickets" %>
+            </div>
           </div>
         </div>
       </div>
@@ -69,8 +73,10 @@
             <h2 class="modal-title fs-5" id="ticketsLabel">Dégâts</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="list-container">
-            <%= render "tickets/damage_tickets" %>
+          <div class="modal-body">
+            <div class="list-container">
+              <%= render "tickets/damage_tickets" %>
+            </div>
           </div>
         </div>
       </div>
@@ -85,7 +91,7 @@
               <%= image_tag("Improvement.png", class:"image") %>
             </div>
             <div class="dec-text">
-              <span>Propose an</span> <h2>Improvement</h2>
+              <span>Propose une </span> <h2>Amélioration</h2>
             </div>
           </div>
         <% end %>
@@ -95,12 +101,53 @@
               <%= image_tag("Damage.png", class:"image") %>
             </div>
             <div class="dec-text">
-              <span>Declare a</span><h2> Damage</h2>
+              <span>Déclare un</span><h2> Dégât</h2>
             </div>
           </div>
         <% end %>
       </div>
     </div>
+
+    <% if current_user.admin? %>
+      <div class="btn-container">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#users">Liste utilisateurs</button>
+      </div>
+
+      <div class="modal fade" id="users" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="usersLabel">Liste utilisateurs</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="list-container">
+              <% @users.each do |user| %>
+                <div class="ticket-card">
+                  <div class="card-infos">
+                    <h3>
+                      <% if user.role == 'user' %>
+                        Utilisateur
+                      <% else %>
+                        Administrateur
+                      <% end %>
+                    </h3>
+                    <p><%= user.first_name %> <%= user.last_name %></p>
+
+                    <%= form_tag change_role_dashboards_path(user), method: :patch, remote: true, class: 'change-role-form' do %>
+                      <%= select_tag 'new_role', options_for_select({ 'Utilisateur' => 0, 'Administrateur' => 1 }, user.role == 'user' ? 0 : 1), class: 'button mr-2' %>
+                      <%= button_tag "Valider", type: 'submit', class: 'ticket-btn' %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+
 
     <%# <div class="list-map-container">
       <div class="l-m-content">
