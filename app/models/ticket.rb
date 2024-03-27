@@ -34,7 +34,7 @@ class Ticket < ApplicationRecord
         if within_area_of_user?(user)
           notification = self.notifications.create(
             hub_id: user.hub.id,
-            notifiable_id: self.id,
+            notifiable_id: self.id
           )
           HubChannel.broadcast_to(
             notification.hub,
