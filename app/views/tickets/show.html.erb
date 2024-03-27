@@ -102,11 +102,13 @@
   </div>
   <div class="comments-list">
     <% @comments.each do |comment| %>
-      <%= link_to ticket_comment_path(comment.ticket_id, comment.id), data: {turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer ce ticket?' } do %>
+      <% if current_user.admin? %>
+        <%= link_to ticket_comment_path(comment.ticket_id, comment.id), data: {turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer ce ticket?' } do %>
             <button type="button" class="btn">
               <i class="fa-regular fa-trash-can"></i>
             </button>
           <% end %>
+      <% end %>
       <span><i class="fa-regular fa-comment"></i> <%= comment.user.first_name %> <%= comment.user.last_name %> a commenté :</span>
       <p><%= comment.content %></p>
     <% end %>
