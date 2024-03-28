@@ -1,7 +1,7 @@
 class Ticket < ApplicationRecord
   belongs_to :user
-  has_many :votes
-  has_many :comments
+  has_many :votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :notifications, as: :notifiable
   after_update :send_notification
 

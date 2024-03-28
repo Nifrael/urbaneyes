@@ -5,6 +5,8 @@
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editTicketModal">
             <i class="fa-regular fa-pen-to-square"></i>
           </button>
+        <% end %>
+        <% if current_user.admin? %>
          <%= link_to ticket_path(@ticket), data: {turbo_method: :delete, confirm: 'Êtes-vous sûr de vouloir supprimer ce ticket?' } do %>
             <button type="button" class="btn">
               <i class="fa-regular fa-trash-can"></i>
